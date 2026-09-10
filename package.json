@@ -1,0 +1,26 @@
+{
+  "name": "parcial1_api_astronomia",
+  "version": "1.0.0",
+  "description": "API educativa sobre astronomía",
+  "homepage": "https://github.com/pdellicarpini/api_astronomia#readme",
+  "bugs": {
+    "url": "https://github.com/pdellicarpini/api_astronomia/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pdellicarpini/api_astronomia.git"
+  },
+  "license": "ISC",
+  "author": "Priscila Delli Carpini",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1"
+  }
+}
