@@ -1,0 +1,41 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: rgb(216, 216, 216);
+}
+
+header {
+    background-color: #041b30;
+    height: 150px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.title {
+    color: #e6831d;
+    font-weight: bold;
+}
+
+.card h2 {
+    color: black;
+    font-weight: bold;
+}
+
+main {
+    background-color: #07233d;
+}
+
+.card {
+    background-color: #40B4B8 !important;
+    width: 550px;
+}
+
+.info {
+    font-size: smaller;
+    color: #525252;
+}
+
+footer {
+    background-color: #041b30;
+    height: 100px;
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Astronomía</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body>
+    <header class="d-flex justify-content-center flex-column align-items-center">
+        <h1 class="title">API Astronomía</h1>
+        <p class="m-0">Aquí encontrarás preguntas y respuestas sobre planetas, estrellas y otros cuerpos celestes. Ideal para utilizar en proyectos educativos.</p>
+    </header>
+
+    <main>
+        <div class="d-flex justify-content-center m-0 pt-5">
+            <div class="card m-2">
+                <h2 class="mx-3 my-2 fs-4">Preguntas</h2>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <span class="badge text-bg-info">GET</span> 
+                        <a href="/api/questions">/api/questions</a> 
+                        <span class="info">Obtener lista completa de preguntas</span></li>
+                    <li class="list-group-item">
+                        <span class="badge text-bg-info">GET</span> 
+                        /api/questions/{questionID}
+                        <span class="info">Obtener pregunta por ID</span></li>
+                    <li class="list-group-item">
+                        <span class="badge text-bg-success">POST</span>
+                        /api/questions 
+                        <span class="info">Crear una pregunta</span> 
+                    </li>
+                    <li class="list-group-item">
+                        <span class="badge text-bg-warning">PUT</span>
+                        /api/questions/{questionID} 
+                        <span class="info">Actualizar una pregunta</span> 
+                    </li>
+                    <li class="list-group-item">
+                        <span class="badge text-bg-danger">DELETE</span> 
+                        /api/questions/{questionID} 
+                        <span class="info">Eliminar una pregunta</span></li>
+                </ul>
+            </div>            
+        </div>
+        <div class="d-flex justify-content-center m-0 pb-5">
+            <div class="card m-2">
+                <h2 class="mx-3 my-2 fs-4">Usuarios</h2>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <span class="badge text-bg-info">GET</span> 
+                        <a href="/api/users">/api/users</a> 
+                        <span class="info">Obtener lista completa de usuarios</span></li>
+                    <li class="list-group-item">
+                        <span class="badge text-bg-info">GET</span> 
+                        /api/users/{userID}
+                        <span class="info">Obtener usuario por ID</span></li>
+                    <li class="list-group-item">
+                        <span class="badge text-bg-success">POST</span>
+                        /api/users 
+                        <span class="info">Crear un usuario</span> 
+                    </li>
+                    <li class="list-group-item">
+                        <span class="badge text-bg-warning">PUT</span>
+                        /api/users/{userID} 
+                        <span class="info">Actualizar un usuario</span> 
+                    </li>
+                    <li class="list-group-item">
+                        <span class="badge text-bg-danger">DELETE</span> 
+                        /api/users/{userID} 
+                        <span class="info">Eliminar un usuario</span></li>
+                </ul>
+            </div> 
+        </div>
+    </main>
+
+    <footer class="d-flex justify-content-center flex-column align-items-center">
+        <p>Priscila Delli Carpini</p>
+        <p>Aplicaciones Híbridas | Jonathan Emanuel Cruz | DWN4AV</p>
+    </footer>
+</body>
+</html>
