@@ -1,76 +1,141 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>API Astronomía</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
+
 <body>
-    <header class="d-flex justify-content-center flex-column align-items-center">
-        <h1 class="title">API Astronomía</h1>
-        <p class="m-0">Aquí encontrarás preguntas y respuestas sobre planetas, estrellas y otros cuerpos celestes. Ideal para utilizar en proyectos educativos.</p>
+    <header class="d-flex justify-content-center flex-column align-items-center pb-3">
+        <img src="./logoNaranja.png" alt="logo" width="64">
+        <h1 class="title fs-2 m-0 p-0">API Astronomía</h1>
+        <p class="m-0">Aquí encontrarás preguntas y respuestas sobre planetas, estrellas y otros cuerpos celestes. Ideal
+            para utilizar en proyectos educativos.</p>
     </header>
 
     <main>
-        <div class="d-flex justify-content-center m-0 pt-5">
+        <div class="d-flex justify-content-center flex-column align-items-center m-0 pt-3 pb-4">
+            <p class="m-0">Documentación de la API para el manejo de preguntas, cursos y usuarios:</p>
+            <p class="m-0 note">(Esta API está en español, cuida las tildes por favor)</p>
             <div class="card m-2">
-                <h2 class="mx-3 my-2 fs-4">Preguntas</h2>
+                <h2 class="mx-3 my-2 fs-5">Preguntas (questions)</h2>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">
-                        <span class="badge text-bg-info">GET</span> 
-                        <a href="/api/questions">/api/questions</a> 
-                        <span class="info">Obtener lista completa de preguntas</span></li>
+                        <span class="badge text-bg-info">GET</span>
+                        <a href="/api/questions">/api/questions</a>
+                        <span class="info">Obtener lista completa de preguntas</span>
+                    </li>
                     <li class="list-group-item">
-                        <span class="badge text-bg-info">GET</span> 
+                        <span class="badge text-bg-info">GET</span>
                         /api/questions/{questionID}
-                        <span class="info">Obtener pregunta por ID</span></li>
+                        <span class="info">Obtener pregunta por ID</span>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="badge text-bg-info">GET</span>
+                        /api/questions?subject=estrellas&difficulty=easy
+                        <span class="info">Filtrar preguntas por tema y/o dificultad</span>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="badge text-bg-info">GET</span>
+                        /api/questions?question=planeta sistema
+                        <span class="info">Buscar preguntas por enunciado (coincidencia parcial, podés poner varias
+                            palabras que creas que puedan estar en el enunciado)</span>
+                    </li>
                     <li class="list-group-item">
                         <span class="badge text-bg-success">POST</span>
-                        /api/questions 
-                        <span class="info">Crear una pregunta</span> 
+                        /api/questions
+                        <span class="info">Crear una pregunta (difficulty solo acepta los valores: easy, medium,
+                            hard)</span>
                     </li>
                     <li class="list-group-item">
                         <span class="badge text-bg-warning">PUT</span>
-                        /api/questions/{questionID} 
-                        <span class="info">Actualizar una pregunta</span> 
+                        /api/questions/{questionID}
+                        <span class="info">Actualizar una pregunta (difficulty solo acepta los valores: easy, medium,
+                            hard)</span>
                     </li>
                     <li class="list-group-item">
-                        <span class="badge text-bg-danger">DELETE</span> 
-                        /api/questions/{questionID} 
-                        <span class="info">Eliminar una pregunta</span></li>
+                        <span class="badge text-bg-danger">DELETE</span>
+                        /api/questions/{questionID}
+                        <span class="info">Eliminar una pregunta</span>
+                    </li>
                 </ul>
-            </div>            
-        </div>
-        <div class="d-flex justify-content-center m-0 pb-5">
+            </div>
             <div class="card m-2">
-                <h2 class="mx-3 my-2 fs-4">Usuarios</h2>
+                <h2 class="mx-3 my-2 fs-5">Cursos (courses)</h2>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">
-                        <span class="badge text-bg-info">GET</span> 
-                        <a href="/api/users">/api/users</a> 
-                        <span class="info">Obtener lista completa de usuarios</span></li>
+                        <span class="badge text-bg-info">GET</span>
+                        <a href="/api/courses">/api/courses</a>
+                        <span class="info">Obtener lista completa de cursos</span>
+                    </li>
                     <li class="list-group-item">
-                        <span class="badge text-bg-info">GET</span> 
-                        /api/users/{userID}
-                        <span class="info">Obtener usuario por ID</span></li>
+                        <span class="badge text-bg-info">GET</span>
+                        /api/courses/{courseID}
+                        <span class="info">Obtener curso por ID</span>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="badge text-bg-info">GET</span>
+                        /api/courses?subject=agujeros
+                        <span class="info">Filtrar cursos por tema</span>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="badge text-bg-info">GET</span>
+                        /api/courses?question=introducción estrellas
+                        <span class="info">Buscar cursos por título (coincidencia parcial, podés poner varias
+                            palabras que creas que puedan estar en el título)</span>
+                    </li>
                     <li class="list-group-item">
                         <span class="badge text-bg-success">POST</span>
-                        /api/users 
-                        <span class="info">Crear un usuario</span> 
+                        /api/courses
+                        <span class="info">Crear un curso (level solo acepta los valores: 1, 2, 3, 4, 5)</span>
                     </li>
                     <li class="list-group-item">
                         <span class="badge text-bg-warning">PUT</span>
-                        /api/users/{userID} 
-                        <span class="info">Actualizar un usuario</span> 
+                        /api/courses/{courseID}
+                        <span class="info">Actualizar un curso ( level solo acepta los valores: 1, 2, 3, 4, 5)</span>
                     </li>
                     <li class="list-group-item">
-                        <span class="badge text-bg-danger">DELETE</span> 
-                        /api/users/{userID} 
-                        <span class="info">Eliminar un usuario</span></li>
+                        <span class="badge text-bg-danger">DELETE</span>
+                        /api/courses/{courseID}
+                        <span class="info">Eliminar un curso</span>
+                    </li>
                 </ul>
-            </div> 
+            </div>
+            <div class="card m-2">
+                <h2 class="mx-3 my-2 fs-5">Usuarios (users)</h2>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <span class="badge text-bg-info">GET</span>
+                        <a href="/api/users">/api/users</a>
+                        <span class="info">Obtener lista completa de usuarios</span>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="badge text-bg-info">GET</span>
+                        /api/users/{userID}
+                        <span class="info">Obtener usuario por ID</span>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="badge text-bg-success">POST</span>
+                        /api/users
+                        <span class="info">Crear un usuario</span>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="badge text-bg-warning">PUT</span>
+                        /api/users/{userID}
+                        <span class="info">Actualizar un usuario</span>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="badge text-bg-danger">DELETE</span>
+                        /api/users/{userID}
+                        <span class="info">Eliminar un usuario</span>
+                    </li>
+                </ul>
+            </div>
         </div>
     </main>
 
@@ -79,4 +144,5 @@
         <p>Aplicaciones Híbridas | Jonathan Emanuel Cruz | DWN4AV</p>
     </footer>
 </body>
+
 </html>

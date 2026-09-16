@@ -3,7 +3,7 @@ import QuestionModel from '../models/questionModel.js';
 class QuestionController {
     async getQuestions(req, res) {
         try {
-            const { subject, difficulty, correctAnswer } = req.query;
+            const { subject, difficulty, question } = req.query;
             const filteredQuestions = {};
 
             if (subject) {
@@ -14,8 +14,12 @@ class QuestionController {
                 filteredQuestions.difficulty = { $regex: new RegExp(difficulty, 'i') };
             }
 
-            if (correctAnswer) {
-                filteredQuestions.correctAnswer = { $regex: new RegExp(correctAnswer, 'i') };
+            if (question) {
+                const words = question.split(' ');
+
+                filteredQuestions.$and = words.map(word => ({
+                    question: { $regex: new RegExp(word, 'i') }
+                }));
             }
 
             const questions = await QuestionModel.find(filteredQuestions);
