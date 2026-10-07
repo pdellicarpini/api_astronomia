@@ -4,12 +4,11 @@ import routerAPI from './routes/index.js';
 import { connectDB } from './config/db.js';
 
 dotenv.config();
-
-const PORT = process.env.PORT;
 connectDB();
 
 const app = express();
 app.use(express.json());
+app.use('/uploads', express.static('uploads'));
 app.use('/', express.static('public'));
 
 routerAPI(app);

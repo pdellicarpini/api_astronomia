@@ -110,6 +110,27 @@ class UserController {
             res.status(500).json({msg: 'Ocurrió un error con el servidor, lamentamos las molestias ocasionadas', data: {}});
         }
     }
+
+    async uploadProfileImage (req, res) {   
+        try {
+            if (!req.file) {
+                return res.status(400).json({ msg: 'No se proporcionó una imagen de perfil', data: {} });
+            }
+            const userId = req.user.id;
+
+            const imagePath = `uploads/profiles/${req.file.filename}`;
+
+            const user = await UserModel.findByIdAndUpdate(userId, { profileImage: imagePath }, { new: true });
+            if (!user) {
+                return res.status(404).json({ msg: 'Usuario no encontrado', data: {} });
+            }
+
+            res.status(200).json({msg: 'Imagen de perfil subida correctamente', data:{ user }});
+        } catch (error) {
+            console.error(error);
+            res.status(500).json({msg: 'Ocurrió un error con el servidor, lamentamos las molestias ocasionadas', data: {}});
+        }
+    }
 }
 
 export default UserController;
