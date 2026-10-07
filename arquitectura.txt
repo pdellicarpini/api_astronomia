@@ -1,0 +1,22 @@
+## LEVEL
+_id
+name | string, required, trim, unique
+description | string, required, trim
+order | number, required, unique
+
+## LESSON
+_id
+title | string, required, trim, unique
+description | string, required, trim
+order | number, required
+level | ObjectId, required
+total_xp | number, required
+   
+## QUESTION
+_id
+question | string, required, trim, unique
+type | string, enum['multiple-choice', 'true-false'], required
+options | [string], required, trim
+correctAnswer | number, required
+difficulty | string, enum['easy', 'medium', 'hard'], trim, required
+lesson | ObjectId, required

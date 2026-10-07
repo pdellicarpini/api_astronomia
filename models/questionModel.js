@@ -5,28 +5,33 @@ const questionSchema = new Schema({
     question: {
         type: String,
         required: true,
+        unique: true,
         trim: true
     }, 
+    type: {
+        type: String,
+        enum: ['multiple-choice', 'true-false'],
+        required: true
+    },
     options: {
         type: [String],
         required: true,
         trim: true
     },
     correctAnswer: {
-        type: String,
+        type: Number,
         required: true,
-        trim: true
-    },
-    subject: {
-        type: String,
-        required: true,
-        trim: true
     },
     difficulty: {
         type: String,
         enum: ['easy', 'medium', 'hard'],
         required: true,
         trim: true
+    },
+    lesson: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Lesson',
+        required: true
     }
 });
 

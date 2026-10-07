@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 
-const courseSchema = new Schema({
+const lessonSchema = new Schema({
     title: {
         type: String,
         required: true,
@@ -30,5 +30,5 @@ const courseSchema = new Schema({
     }
 });
 
-const CourseModel = mongoose.model('Course', courseSchema);
-export default CourseModel;
+const LessonModel = mongoose.model('Lesson', lessonSchema);
+export default LessonModel;
