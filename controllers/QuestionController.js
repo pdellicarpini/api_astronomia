@@ -57,8 +57,8 @@ class QuestionController {
 
     async postQuestion(req, res) {
         try {
-            const { question, options, correctAnswer, subject, difficulty } = req.body;
-            if (!question || !options || options.length === 0 || !correctAnswer || !subject || !difficulty) {
+            const { question, options, correctAnswer, subject, difficulty, type } = req.body;
+            if (!question || !options || options.length === 0 || !correctAnswer || !subject || !difficulty || !type) {
                 res.status(400).json({ msg: 'Faltan campos obligatorios por rellenar' })
                 return;
             }
@@ -70,7 +70,7 @@ class QuestionController {
                 return;
             }
 
-            const newQuestion = new QuestionModel({ question, options, correctAnswer, subject, difficulty });
+            const newQuestion = new QuestionModel({ question, options, correctAnswer, subject, difficulty, type });
 
             const data = await newQuestion.save();
             res.status(201).json({ msg: 'Pregunta creada exitosamente', data });
@@ -107,13 +107,13 @@ class QuestionController {
     async updateQuestionById(req, res) {
         try {
             const { id } = req.params;
-            const { question, options, correctAnswer, subject, difficulty } = req.body;
-            if (!question || !options || options.length === 0 || !correctAnswer || !subject || !difficulty) {
+            const { question, options, correctAnswer, subject, difficulty, type } = req.body;
+            if (!question || !options || options.length === 0 || !correctAnswer || !subject || !difficulty || !type) {
                 res.status(400).json({ msg: 'Faltan campos obligatorios por rellenar' });
                 return;
             }
 
-            const updatedQuestion = await QuestionModel.findByIdAndUpdate(id, { question, options, correctAnswer, subject, difficulty }, { new: true, runValidators: true });
+            const updatedQuestion = await QuestionModel.findByIdAndUpdate(id, { question, options, correctAnswer, subject, difficulty, type }, { new: true, runValidators: true });
 
             if (!updatedQuestion) {
                 res.status(404).json({ msg: 'Pregunta no encontrada', data: {} });

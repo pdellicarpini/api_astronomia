@@ -12,10 +12,10 @@ const lessonSchema = new Schema({
         required: true,
         trim: true
     },
-    subject: {
-        type: String,
+    order: {
+        type: Number,
         required: true,
-        trim: true
+        min: 1
     },
     level: {
         type: Number,
@@ -23,12 +23,11 @@ const lessonSchema = new Schema({
         min: 1,
         max: 5
     },
-    lessons: {
+    totalXp: {
         type: Number,
-        required: true,
-        min: 1
+        required: true, 
     }
-});
+}); 
 
 const LessonModel = mongoose.model('Lesson', lessonSchema);
 export default LessonModel;

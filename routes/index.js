@@ -7,7 +7,7 @@ import authMiddleware from '../middlewares/authMiddleware.js';
 const routerAPI = (app) => {
     app.use('/api/users', authMiddleware, userRouter);
     app.use('/api/questions', questionRouter);
-    app.use('/api/courses', lessonRouter);
+    app.use('/api/lessons', lessonRouter);
     app.use('/api/auth', authRouter);
 }
 

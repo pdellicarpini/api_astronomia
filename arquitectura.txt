@@ -15,8 +15,10 @@ total_xp | number, required
 ## QUESTION
 _id
 question | string, required, trim, unique
-type | string, enum['multiple-choice', 'true-false'], required
+type | string, enum['multiple-choice', 'true-false', 'ordering', 'matching'], required
 options | [string], required, trim
+matchOptions | [string], trim, NO required
 correctAnswer | number, required
+explanation | string, required, trim
 difficulty | string, enum['easy', 'medium', 'hard'], trim, required
 lesson | ObjectId, required
