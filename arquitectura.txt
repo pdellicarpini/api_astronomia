@@ -10,7 +10,7 @@ title | string, required, trim, unique
 description | string, required, trim
 order | number, required
 level | ObjectId, required
-total_xp | number, required
+totalXp | number, required
    
 ## QUESTION
 _id

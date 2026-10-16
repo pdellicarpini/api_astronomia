@@ -5,6 +5,7 @@ const lessonSchema = new Schema({
     title: {
         type: String,
         required: true,
+        unique: true,
         trim: true
     }, 
     description: {
@@ -18,10 +19,9 @@ const lessonSchema = new Schema({
         min: 1
     },
     level: {
-        type: Number,
-        required: true,
-        min: 1,
-        max: 5
+        type: Schema.Types.ObjectId,
+        ref: 'Level',
+        required: true
     },
     totalXp: {
         type: Number,
