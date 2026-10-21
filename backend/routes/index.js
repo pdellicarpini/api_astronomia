@@ -9,7 +9,7 @@ const routerAPI = (app) => {
     app.use('/api/users', authMiddleware, userRouter);
     app.use('/api/questions', questionRouter);
     app.use('/api/lessons', lessonRouter);
-    app.use('/api/levels', lessonRouter);
+    app.use('/api/levels', levelRouter);
     app.use('/api/auth', authRouter);
 }
 

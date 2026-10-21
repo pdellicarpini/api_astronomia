@@ -1,5 +1,6 @@
 import express from 'express';
 import dotenv from 'dotenv';
+import cors from 'cors';
 import routerAPI from './routes/index.js';
 import { connectDB } from './config/db.js';
 
@@ -7,6 +8,7 @@ dotenv.config();
 connectDB();
 
 const app = express();
+app.use(cors({ origin: 'http://localhost:5173' }));
 app.use(express.json());
 app.use('/uploads', express.static('uploads'));
 app.use('/', express.static('public'));

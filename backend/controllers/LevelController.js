@@ -5,7 +5,7 @@ import LessonModel from '../models/lessonModel.js';
 class LevelController {
     async getLevels(req, res) {
         try {
-            const levels = await LevelModel.find();
+            const levels = await LevelModel.find().sort({ order: 1 });
 
             if (levels.length === 0) {
                 return res.status(404).json({ msg: 'No se encontraron niveles.', data: {} });
