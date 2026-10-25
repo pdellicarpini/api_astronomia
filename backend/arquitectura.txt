@@ -1,3 +1,11 @@
+## USER
+_id
+name
+lastName
+email
+password
+level
+
 ## LEVEL
 _id
 name | string, required, trim, unique
@@ -22,3 +30,35 @@ correctAnswer | number, required
 explanation | string, required, trim
 difficulty | string, enum['easy', 'medium', 'hard'], trim, required
 lesson | ObjectId, required
+
+pages/
+  HomePage.jsx
+  LessonPage.jsx
+  CommunityPage.jsx    (vacías por ahora)
+  CalendarPage.jsx
+  EventsPage.jsx
+components/
+  layout/
+    AppLayout.jsx      (BottomNav + Outlet)
+    BottomNav.jsx
+  home/
+    ProfileHeader.jsx
+    StreakBadge.jsx
+    LevelBanner.jsx    (con lista de niveles)
+    LessonCard.jsx
+  lesson/
+    LessonHeader.jsx   (cerrar + barra)
+    QuestionRenderer.jsx
+    FeedbackBar.jsx
+    LessonComplete.jsx
+  questions/
+    MultipleChoice.jsx
+    TrueFalse.jsx
+    Matching.jsx
+    Ordering.jsx
+hooks/
+  useLessonSession.js
+services/
+  api.js
+mocks/
+  levels.js, lessons.js, questions.js

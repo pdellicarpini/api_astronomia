@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { fetchLevels } from '../services/api.js';
+import { fetchLevels } from '../../services/api.js';
 
 function LevelsCard() {
     const [error, setError] = useState('');
@@ -10,7 +10,6 @@ function LevelsCard() {
             try {
                 const result = await fetchLevels();
                 setLevels(result.data.levels);
-                console.log(result.data.levels)
             } catch (error) {
                 console.log(error);
                 setError('No pudimos obtener los niveles, intente nuevamente.');
@@ -20,7 +19,7 @@ function LevelsCard() {
         } 
 
         getLevels();
-    }, [error]);
+    }, [error]); 
 
     return (
         <>
@@ -34,7 +33,7 @@ function LevelsCard() {
                     </div>))}
                 
         </>
-    )
+    );
 }
 
 export default LevelsCard;

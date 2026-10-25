@@ -4,55 +4,34 @@
   --light-blue: #2E2186;
   --asteria-orange: #F08228;
   --light-orange: #FFAD66;
-  --white: #EFEFEF;
+  --white: #efefef;
   --gold: #FFD23F;
   --info: #5CC8FF;
   --success: #3DDC97;
   --danger: #FF5C7A;
+
   --shadow:
     rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
 
   --sans: "DM Sans", sans-serif;
-
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
-  color-scheme: light dark;
-  color: var(--text);
-  background: var(--bg);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
-  @media (max-width: 1024px) {
-    font-size: 16px;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
-
-  #social .button-icon {
-    filter: invert(1) brightness(2);
-  }
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 350;
+}
+
+body {
+  background: #180D61;
+  background: linear-gradient(0deg, rgba(24, 13, 97, 1) 0%, rgba(13, 7, 56, 1) 100%);
+}
+
+main {
+  padding: 0.5rem 0;
+  margin: 1rem;
 }
 
 h1 {
@@ -63,32 +42,252 @@ h1 {
     font-size: 36px;
     margin: 20px 0;
   }
+  font-weight: 500;
 }
 
-h2 {
+h2, h3 {
   font-size: 24px;
   @media (max-width: 1024px) {
     font-size: 22px;
   }
+  font-weight: 600;
 }
 
-.levels-card {
-  background-color: #F08228;
-  padding: 2rem;
-  margin: 1rem;
+/* profile header */
+
+.avatar-placeholder {
+  background-color: #e9eaf0;
+  width: 44px;
+  border-radius: 100%;
+}
+
+.profile-header img {
+  border-radius: 100%;
+  width: 44px;
+}
+
+.profile-header {
+  display: flex;
+  gap: 0.5rem;
+  background: var(--asteria-blue);
+  background: linear-gradient(90deg, rgba(24, 13, 97, 1) 0%, rgba(46, 33, 134, 1) 100%);
+  padding: 1rem;
+  width: 250px;
+  font-size: 14px;
+  border-radius: 60px 80px 40px 60px;
+}
+
+.profile-header div {
+  line-height: 1.2;
+  margin: auto 0;
+}
+
+.profile-header > div p:first-of-type {
+  font-weight: bold;
+}
+
+.profile-header > div p:last-of-type {
+  color: var(--light-orange);
+  font-weight: 300;
+}
+
+.user-header {
+  display: flex;
+  justify-content: space-between;
+}
+.streak-badge {
+  width: fit-content;
+  height: fit-content;
+  padding: 0.8rem 1rem;
+  border-radius: 30px;
+  background-color: var(--light-blue);
+  display: flex;
+  align-items: end;
+  gap: 0.5rem;
+  font-size: 14px;
+  align-self: center;
+  line-height: 1;
+  color: var(--asteria-orange);
+}
+
+.streak-badge p:first-child {
+  font-size: 16px;
+}
+
+.streak-icon {
+  width: 30px;
+}
+
+/* lessons */
+
+.lessons-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  align-items: center;
+}
+
+.lessons-section > p {
+  font-size: 14px;
+}
+
+.lesson-card {
+  background-color: var(--light-blue);
+  border: thin solid var(--light-orange);
+  border-radius: 15px;
+  padding: 1rem;
+  width: 361px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.lesson-icon {
+  background-color: var(--light-orange);
+  width: 50px;
+  border-radius: 100%;
+  border: 3px solid var(--asteria-orange);
+  height: 50px;
+  display: flex;
+}
+
+/* .lesson-icon img {
+  width: 30px;
+  margin: auto;
+} */
+
+.lesson-icon i {
+  font-size: 25px;
+  color: var(--asteria-orange);
+  margin: auto;
+}
+
+.lesson-card > div {
+  color: var(--asteria-orange);
+  display: flex; 
+  gap: 1rem;
+}
+
+.lesson-card > div p:first-of-type {
+  font-size: 14px;
+  color: var(--light-orange);
+}
+
+.lesson-card h3 {
+  font-size: 20px;
+}
+
+.lesson-card button {
+  background-color: var(--light-orange);
+  border: none;
+  padding: 0.7rem 1.2rem;
+  color: var(--deep-blue);
+  border-radius: 20px;
+  margin-top: 0.7rem;
+  width: 135px;
+  background-color: var(--light-orange);
+  align-self: flex-end;
+  font-size: 16px;
+  font-family: inherit;
+  font-weight: 500;
+}
+
+/* completed lesson */
+
+.lesson-card--completed {
+  border: thin solid var(--gold); 
+}
+
+.lesson-card--completed > div {
+  color: var(--gold);
+}
+
+.lesson-card--completed > div p:first-of-type {
+  color: #b9982a;
+}
+
+.lesson-card--completed .lesson-icon {
+  background-color: var(--gold);
+  border: 3px solid #b9982a;
+}
+
+.lesson-card--completed i {
+  font-size: 25px;
+  color: #b9982a;
+  margin: auto;
+}
+
+.lesson-card--completed button {
+  background-color: var(--gold);
+}
+
+/* locked lesson */
+
+.lesson-card--locked p:last-child {
+  color: var(--info);
+  background-color: var(--asteria-blue);
+  padding: 0.6rem;
+  font-size: 12px;
+  text-align: center;
+  border-radius: 20px;
+  margin-top: 1rem;
+}
+
+.lesson-card--locked {
+  background-color: var(--deep-blue);
+  border: thin solid var(--light-blue); 
+  color: #efefef93;
+}
+
+.lesson-card--locked > div p:first-of-type {
+  color: #5cc9ff73;
+}
+
+.lesson-card--locked > div {
+  color: #efefef93;
+}
+
+.lesson-card--locked .lesson-icon {
+  background-color: var(--light-blue);
+  border: 3px solid var(--asteria-blue);
+} 
+
+.lesson-card--locked .lesson-icon i {
+  color: var(--asteria-blue);
+}
+
+/* levels */
+
+.level-card {
+  background: #F08228;
+  background: linear-gradient(180deg, rgba(240, 130, 40, 1) 0%, rgba(255, 173, 102, 1) 100%);
+  padding: 1rem;
+  margin: 1rem 0;
   color: var(--deep-blue);
   border-radius: 1rem;
   display: flex;
-  flex-direction: column;
   align-items: start;
+  justify-content: space-between;
+  gap: 1 rem;
 }
 
-.levels-title {
-  font-size: 22px;
-  margin-bottom: 2rem;
+.level-card p:last-child {
+  font-size: 14px;
 }
 
-.levels-container {
-  display: flex;
-  flex-direction: column;
+.level-card button {
+  align-self: center;
+  border: none;
+  background-color: transparent;
+  color: var(--deep-blue);
+}
+
+.level-card button i {
+  font-size: 20px;
+}
+
+.levels-list {
+
 }
