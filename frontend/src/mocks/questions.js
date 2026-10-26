@@ -20,4 +20,18 @@ export const questions = [
         options: ['Rotación', 'Traslación', 'Precesión', 'Nutación'],
         correctAnswer: 'Rotación',
     },
+    {
+        _id: 'q4',
+        type: 'matching',
+        question: 'Relacioná cada fenómeno con su causa.',
+        options: ['Día y noche', 'Duración del año', 'Estaciones'],
+        matchOptions: ['Rotación', 'Traslación', 'Inclinación del eje'],
+    },
+    {
+        _id: 'q5',
+        type: 'matching',
+        question: 'Relacioná cada planeta con su característica.',
+        options: ['Mercurio', 'Venus', 'Tierra', 'Marte'],
+        matchOptions: ['Temperaturas extremas y poca atmósfera', 'Atmósfera densa de CO₂', 'Agua líquida y placas tectónicas', 'Volcán más alto del Sistema Solar'],
+    },
 ];

@@ -10,7 +10,7 @@ function LessonCard({ lesson, status, onStart }) {
             <div>
                 <div className="lesson-icon">
                     {/* <img src={ lessonIcon } alt="" /> */}
-                    <i class="bi bi-journal-bookmark"></i>
+                    <i className="bi bi-journal-bookmark"></i>
                 </div>
                 <div>
                     <p>Lección { lesson.order }</p>

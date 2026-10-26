@@ -11,23 +11,26 @@ function MultipleChoice({ question, onAnswer }) {
 
     return (
         <div className='multiple-choice'>
-            <h2>{ question.question }</h2>
-            <ul>
-                { question.options.map(option => (
-                    <li key={ option }>
-                        <button
-                            onClick={ () => setSelected(option)}
-                            disabled={ checked }
-                            aria-pressed={ selected === option }
-                        >
-                            { option }
-                        </button>
-                    </li>
-                ))}
-            </ul>
-            <button onClick={ handleCheck } disabled={ selected === null || checked }>
-                Enviar
-            </button>
+            <h3>{ question.question }</h3>
+            <div>
+                <ul>
+                    { question.options.map(option => (
+                        <li key={ option }>
+                            <button
+                                onClick={ () => setSelected(option)}
+                                disabled={ checked }
+                                aria-pressed={ selected === option }
+                                className='button-option'
+                            >
+                                { option }
+                            </button>
+                        </li>
+                    ))}
+                </ul>
+                <button onClick={ handleCheck } disabled={ selected === null || checked } className='send-button'>
+                    Enviar
+                </button>
+            </div>
         </div>
     )
 }

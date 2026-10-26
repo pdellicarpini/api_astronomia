@@ -1,0 +1,89 @@
+Parte 0, en papel (sin código):
+
+Mirá cómo tenés modelado matchOptions en tu entidad de preguntas y dibujá un ejemplo concreto con 4 pares.
+Escribí qué datos recuerda el componente mientras el usuario juega. Pista: son tres cosas, y una de ellas es “qué elemento de una columna está tocado ahora mismo”.
+Escribí en 5 pasos, en tus palabras, lo que pasa desde que el usuario toca algo hasta que aparece el mensaje de correcto o incorrecto.
+
+qué recuerda el componente mientras el usuario juega:
+1. opción seleccionada en columna izquierda (options)
+2. opción seleccioanda en columna derecha (matchOptions)
+3. utilizar un estado para determinar qué botones pintar de verde y deshabilitarlos. usar useState. si los índices no coinciden, setear el estado para que aparezca en rojo con un delay y luego ambas selecciones recordadas limpiarlas para que el componente vuelva a recordar cada una individualmente y vuelva a validar.
+
+cinco pasos desde que el usuario toca hasta el mensaje:
+1. seleccionar una opción de la columna izquierda
+2. seleccionar una opción de la columna derecha
+3. comparar si los índices coinciden o no (en el momento en que se terminan de seleccionar ambos botones, sin un enviar)
+4. feedback automático en colores si es correcto -> botones se transforman de color verde y se deshabilitan. si es incorrecto -> botones se transforman de color rojo y te deja volver a intentar hasta matchear todas las opciones correctas.
+5. al finalizar todos los pares (todos deshabilitados ya) sale el cartel de ¡correcto! (no hay cartel de incorrecto porque no se puede finalizar la pregunta hasta no completar los pares correctos, como en duolingo).
+
+comparar posiciones: 
+1. guardar tanto en options como matchOptions el orden correcto para que ambos índices funcionen como parejas. 
+2. en el front mezclar ambas con una función copiando el array para no cambiar el original 
+3. las comparaciones hacerlas en base a las posiciones originales de ambas columnas
+4. información extra: index. copiar el array agregando el índice original a cada elemento para luego poder compararlos.
+5. agregarle la info extra recorriendo el array con un map. donde solo se agregue en la copia de array. 
+
+contrato con la lección:
+1. al terminar todos los pares y estar deshabilitados, onAnswer pasa a ser true (nunca puede ser false y solo sucede al terminar de matchear pares).
+2. el matching guarda errores por cada estado negativo de pares mal matcheado. 
+3. como primera instancia no va a contar los errores para no complejizar el código.
+
+qué pasa con un estado inmediatamente después de llamar a su setX dentro de la misma función:
+se renderiza el valor viejo porque react va renderizando en una fila de espera (queue) y no se actualiza hasta que se llame al próximo render.
+en qué momento y dónde ejecutar la comparación:
+utilizar useEffect haciendo su comparación dentro y pasarle la variable de estado como dependencia para que se renderice cada vez que esta cambia.
+
+¿Qué pasa si el usuario toca primero la columna derecha?
+el usuario puede tocar cualquier columna primero porque se va a guardar su elección en un estado.
+
+¿Y si toca dos veces seguidas la misma columna?
+el estado asignado solo funciona una vez hasta que 1: sea correcto el matcheo y se deshabilite o 2: sea incorrecto y el estado se recargue.
+si toca nuevamente en la misma columna debería reemplazar la elección anterior
+
+¿Y si toca un botón ya resuelto?
+qué sería estar resuelto salga de un dato real de mi estado?
+no entendí esa pregunta
+
+¿Hace falta un estado “terminó”, o se puede calcular a partir de otra cosa? Acordate del punto 3 del método.
+comparar la cantidad de pares totales con la cantidad de pares resueltos para definir si se terminó y llamar a onAnswer
+
+#######
+
+Un caso borde más, que sale de tu idea del delay en rojo: mientras esos botones están rojos esperando, decidí qué pasa si el usuario toca otra cosa en ese tiempo.
+en el momento del delay en rojo, el resto de botones tienen que quedar inhabilitados para tocar hasta que termine el delay y se reinicien las opciones para intentar nuevamente (el delay tiene que durar muy poquito para no ser tedioso).
+
+
+########
+
+Parte 1, los datos: agregá una pregunta matching a mocks/questions.js con 4 pares de astronomía, usando el formato que definiste en la Parte 0.
+
+Parte 2, lo que debe hacer el componente:
+
+Recibe question y onAnswer, igual que MultipleChoice.
+Muestra dos columnas. El usuario toca un elemento de la izquierda y uno de la derecha, y se forma un par.
+Los pares formados se tienen que distinguir visualmente (aunque sea con texto, como “emparejado con...”).
+Si toca un elemento ya emparejado, el par se deshace.
+La derecha tiene que verse en orden mezclado, para que la posición no delate la respuesta.
+“Comprobar” se habilita solo cuando todos están emparejados.
+Al comprobar, bloquea todo y llama a onAnswer(true) si todos los pares son correctos, o onAnswer(false) si hay alguno incorrecto.
+
+Parte 3, conectarlo: agregá el caso en QuestionRenderer.
+
+Preguntas para guiarte (respondelas antes de programar):
+
+¿Cómo representás un par en el estado?
+¿Qué pasa si toca dos veces la izquierda seguidas?
+¿Cómo sabés que ya están todos emparejados?
+¿Cómo comparás tus pares con los correctos?
+¿Dónde mezclás la columna derecha, y qué pasaría si lo hicieras en cada render?
+
+Para esa última pregunta te dejo una pista: investigá useMemo o la forma de pasarle una función a useState para el valor inicial.
+
+Cómo saber que está listo:
+
+Un matching todo bien dispara “Correcto”.
+Un matching con un par cruzado dispara “Incorrecto”, y la pregunta vuelve al final.
+Podés deshacer un par antes de comprobar.
+No podés comprobar con pares incompletos.
+
+Hacé primero la Parte 0 y después el código. Cuando lo tengas, o si te trabás en un punto concreto, pegame lo que hiciste y te lo reviso y te marco dónde mejorar, sin reescribírtelo. Si te sale bien, Ordering es la siguiente consigna y va a ser mucho más rápida, porque repetís el mismo método.

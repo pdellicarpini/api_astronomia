@@ -29,11 +29,6 @@ body {
   background: linear-gradient(0deg, rgba(24, 13, 97, 1) 0%, rgba(13, 7, 56, 1) 100%);
 }
 
-main {
-  padding: 0.5rem 0;
-  margin: 1rem;
-}
-
 h1 {
   font-size: 56px;
   letter-spacing: -1.68px;
@@ -51,6 +46,25 @@ h2, h3 {
     font-size: 22px;
   }
   font-weight: 600;
+}
+
+.main-button {
+  background-color: var(--light-orange);
+  border: none;
+  padding: 0.7rem 1.2rem;
+  color: var(--deep-blue);
+  border-radius: 20px;
+  margin-top: 0.7rem;
+  width: 135px;
+  align-self: flex-end;
+  font-size: 16px;
+  font-family: inherit;
+  font-weight: 500;
+}
+
+.home {
+  padding: 0.5rem 0;
+  margin: 1rem;
 }
 
 /* profile header */
@@ -288,6 +302,140 @@ h2, h3 {
   font-size: 20px;
 }
 
-.levels-list {
+/* questions card */
 
+.questions {
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding: 1rem;
 }
+
+.questions button {
+  border: none;
+  background-color: transparent;
+} 
+
+/* questions type: multiple-choice & true-false (mismo componente) */
+
+.multiple-choice > div {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  align-items: center;
+}
+
+.multiple-choice .send-button {
+  background-color: var(--asteria-orange);
+  border: none;
+  padding: 0.7rem 1.2rem;
+  color: var(--deep-blue);
+  border-radius: 20px;
+  width: 135px;
+  align-self: flex-end;
+  font-size: 16px;
+  font-family: inherit;
+  font-weight: 500;
+}
+
+/* questions type: matching (y opciones multiple-choice)*/
+
+.matching > div {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.matching ul li,
+.multiple-choice ul li {
+  list-style: none;
+}
+
+.matching .button-option,
+.multiple-choice .button-option {
+  background-color: var(--light-orange);
+  color: var(--deep-blue);
+  min-width: 170px;
+  margin-bottom: 0.5rem;
+  border: thin solid var(--light-orange);
+  padding: 1rem;
+  border-radius: 10px;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.button-option:hover, 
+.button-option:focus {
+  background-color: var(--asteria-orange);
+  border: thin solid var(--asteria-orange);
+  transition: 0.3s;
+}
+
+.matching .button-matching--correct,
+.matching .button-matching--correct:hover {
+  border: thin solid var(--asteria-orange);
+  color: var(--white);
+  background-color: #ffad663f;
+}
+
+.matching .button-matching--wrong {
+  border: thin solid var(--danger);
+  color: var(--white);
+  background-color: #ff5c7a56;
+} 
+
+.feedback-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 1.25rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border-radius: 20px 20px 0 0;
+  z-index: 100;
+}
+
+.feedback-bar p {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.feedback-bar button {
+  padding: 0.75rem 1.25rem;
+  border: none;
+  border-radius: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: inherit;
+  font-weight: 500;
+}
+
+/* Respuesta correcta */
+.feedback-bar--correct {
+  border: thin solid var(--success);
+  background-color: #3ddc9734;
+  color: var(--white);
+}
+
+.feedback-bar--correct button {
+  background-color: var(--success);
+  color: var(--deep-blue);
+}
+
+/* Respuesta incorrecta */
+.feedback-bar--wrong {
+  border: thin solid var(--danger);
+  background-color: #ff5c7a1a;
+  color: var(--white);
+}
+
+.feedback-bar--wrong button {
+  background-color: var(--danger);
+  color: var(--deep-blue);
+}
+

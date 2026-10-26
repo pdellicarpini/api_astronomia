@@ -13,7 +13,7 @@ function LevelsCard({ currentLevel, levels }) {
                 </div>
 
                 <button onClick={ () => setIsOpen(!isOpen)}>
-                    { isOpen ? 'Volver' : <i class="bi bi-chevron-right"></i> }
+                    { isOpen ? 'Volver' : <i className="bi bi-chevron-right"></i> }
                 </button>
             </div>
             <div>

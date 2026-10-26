@@ -17,31 +17,31 @@ function Home() {
     const currentLevel = levels.find(level => level.name === currentUser.level);
 
     return (
-        <main>
-                <header className='user-header'>
-                    <ProfileHeader 
-                        avatar={ currentUser.profileImg }
-                        username={ currentUser.name }
-                        level={ currentUser.level }
-                    />
-                    <StreakBadge 
-                        streak={ currentUser.streak }
-                    />
-                </header>
+        <main className='home'>
+            <header className='user-header'>
+                <ProfileHeader
+                    avatar={currentUser.profileImg}
+                    username={currentUser.name}
+                    level={currentUser.level}
+                />
+                <StreakBadge
+                    streak={currentUser.streak}
+                />
+            </header>
 
-                <LevelsCard currentLevel={ currentLevel } levels={ levels }/>
-                
-                <section className='lessons-section'>
-                    <p>Repasá las lecciones completadas volviendo a tomarlas ¡A seguir practicando!</p>
-                    { lessons.map ( lesson => (
-                        <LessonCard 
-                            key={ lesson._id }
-                            lesson={ lesson }
-                            status={ lesson.status }
-                            onStart={ handleStart }
-                        />
-                    ))}
-                </section>
+            <LevelsCard currentLevel={currentLevel} levels={levels} />
+
+            <section className='lessons-section'>
+                <p>Repasá las lecciones completadas volviendo a tomarlas ¡A seguir practicando!</p>
+                {lessons.map(lesson => (
+                    <LessonCard
+                        key={lesson._id}
+                        lesson={lesson}
+                        status={lesson.status}
+                        onStart={handleStart}
+                    />
+                ))}
+            </section>
         </main>
     )
 }
