@@ -29,24 +29,7 @@ body {
   background: linear-gradient(0deg, rgba(24, 13, 97, 1) 0%, rgba(13, 7, 56, 1) 100%);
 }
 
-h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
-  font-weight: 500;
-}
-
-h2, h3 {
-  font-size: 24px;
-  @media (max-width: 1024px) {
-    font-size: 22px;
-  }
-  font-weight: 600;
-}
+/*  button principal */
 
 .main-button {
   background-color: var(--light-orange);
@@ -62,12 +45,18 @@ h2, h3 {
   font-weight: 500;
 }
 
+h2, h3 {
+  font-weight: 600;
+}
+
 .home {
   padding: 0.5rem 0;
   margin: 1rem;
 }
 
-/* profile header */
+/* -------------- header -------------- */
+
+/*  profile header */
 
 .avatar-placeholder {
   background-color: #e9eaf0;
@@ -109,6 +98,9 @@ h2, h3 {
   display: flex;
   justify-content: space-between;
 }
+
+/* streak badge */
+
 .streak-badge {
   width: fit-content;
   height: fit-content;
@@ -132,7 +124,7 @@ h2, h3 {
   width: 30px;
 }
 
-/* lessons */
+/* -------------- lessons --------------*/
 
 .lessons-section {
   display: flex;
@@ -166,11 +158,6 @@ h2, h3 {
   height: 50px;
   display: flex;
 }
-
-/* .lesson-icon img {
-  width: 30px;
-  margin: auto;
-} */
 
 .lesson-icon i {
   font-size: 25px;
@@ -272,7 +259,7 @@ h2, h3 {
   color: var(--asteria-blue);
 }
 
-/* levels */
+/* -------------- levels --------------*/
 
 .level-card {
   background: #F08228;
@@ -302,12 +289,68 @@ h2, h3 {
   font-size: 20px;
 }
 
-/* questions card */
+/* -------------- barra de progreso --------------*/
+
+progress {
+  display: block;
+  width: 100%;
+  height: 10px;
+  margin: 1rem 0;
+  appearance: none;
+  -webkit-appearance: none;
+  border: none;
+  border-radius: 999px;
+  overflow: hidden;
+  background-color: var(--deep-blue);
+}
+
+progress::-webkit-progress-bar {
+  background-color: var(--deep-blue);
+  border-radius: 999px;
+}
+
+progress::-webkit-progress-value {
+  background-color: var(--asteria-orange);
+  border-radius: 999px;
+  transition: width 0.3s ease;
+}
+
+progress::-moz-progress-bar {
+  background-color: var(--asteria-orange);
+  border-radius: 999px;
+  transition: width 0.3s ease;
+}
+
+/* -------------- questions card --------------*/
+
+.lesson-banner {
+  background-color: var(--light-blue);
+  padding: 1rem;
+  margin-bottom: 2rem;
+  border-radius: 20px;
+}
+
+.lesson-banner__text h2 {
+  color: var(--asteria-orange);
+  font-size: 18px;
+}
+
+.lesson-banner__text p {
+  color: var(--light-orange);
+  font-size: 14px;
+}
+
+.lesson-banner__progress {
+  display: flex;
+  gap: 0.5rem;
+}
 
 .questions {
   min-height: 100vh;
   box-sizing: border-box;
   padding: 1rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .questions button {
@@ -315,7 +358,7 @@ h2, h3 {
   background-color: transparent;
 } 
 
-/* questions type: multiple-choice & true-false (mismo componente) */
+/* -------------- multiple-choice & true-false (mismo componente) -------------- */
 
 .multiple-choice > div {
   display: flex;
@@ -327,7 +370,7 @@ h2, h3 {
 
 .multiple-choice .send-button {
   background-color: var(--asteria-orange);
-  border: none;
+  border: thin solid var(--asteria-orange);
   padding: 0.7rem 1.2rem;
   color: var(--deep-blue);
   border-radius: 20px;
@@ -338,12 +381,40 @@ h2, h3 {
   font-weight: 500;
 }
 
-/* questions type: matching (y opciones multiple-choice)*/
+.multiple-choice .send-button:hover {
+  background-color: var(--light-blue);
+  color: var(--asteria-orange);
+  border: thin solid var(--asteria-orange);
+  transition: 0.2s;
+}
 
-.matching > div {
+.multiple-choice.true-false ul {
   display: flex;
-  gap: 1.5rem;
-  margin-top: 1rem;
+  background-color: var(--asteria-orange);
+  width: 100%;
+  gap: 1rem;
+}
+
+.multiple-choice.true-false ul .button-option {
+  min-width: 100%;
+}
+
+.multiple-choice.true-false .button-option {
+  min-width: 100%;
+}
+
+/* -------------- estilos generales compartidos: matching y multiple-choice -------------- */
+
+.multiple-choice, 
+.matching {
+  align-self: center;
+}
+
+.multiple-choice > div ,
+.matching > div  {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .matching ul li,
@@ -355,7 +426,7 @@ h2, h3 {
 .multiple-choice .button-option {
   background-color: var(--light-orange);
   color: var(--deep-blue);
-  min-width: 170px;
+  min-width: 100%;
   margin-bottom: 0.5rem;
   border: thin solid var(--light-orange);
   padding: 1rem;
@@ -363,25 +434,70 @@ h2, h3 {
   transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
-.button-option:hover, 
-.button-option:focus {
+/* -------------- matching -------------- */
+
+.matching > div {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.matching-right-column .button-option {
   background-color: var(--asteria-orange);
   border: thin solid var(--asteria-orange);
-  transition: 0.3s;
 }
 
-.matching .button-matching--correct,
-.matching .button-matching--correct:hover {
-  border: thin solid var(--asteria-orange);
-  color: var(--white);
-  background-color: #ffad663f;
+.button-option:hover,
+.button-option:focus {
+  background-color: var(--light-blue);
+  color: var(--info);
+  border: thin solid var(--info);
+  transition: 0.2s;
 }
 
-.matching .button-matching--wrong {
+/* match incorrecto */
+
+.matching .button-matching--wrong,
+.matching .button-matching--wrong:hover,
+.matching .button-matching--wrong:focus,
+.matching-right-column .button-matching--wrong,
+.matching-right-column .button-matching--wrong:hover,
+.matching-right-column .button-matching--wrong:focus {
   border: thin solid var(--danger);
+  box-shadow: 0 0 0 1px var(--danger);
   color: var(--white);
-  background-color: #ff5c7a56;
+  background-color: #ff5c7a80;
+  animation: shake 0.3s ease;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  75% { transform: translateX(4px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .matching .button-matching--wrong,
+  .matching-right-column .button-matching--wrong {
+    animation: none;
+  }
+}
+
+/* match correcto */
+
+.matching .button-option.button-matching--correct,
+.matching .button-option.button-matching--correct:hover,
+.matching .button-option.button-matching--correct:focus,
+.matching-right-column .button-option.button-matching--correct,
+.matching-right-column .button-option.button-matching--correct:hover,
+.matching-right-column .button-option.button-matching--correct:focus {
+  border: thin solid var(--success);
+  color: var(--white);
+  background-color: #3ddc9726;
+  transition: none;
 } 
+
+/* -------------- feedback -------------- */
 
 .feedback-bar {
   position: fixed;
@@ -389,33 +505,53 @@ h2, h3 {
   left: 0;
   width: 100%;
   box-sizing: border-box;
-  padding: 1.25rem 1rem;
+  padding: 1.25rem 1rem calc(1.25rem + env(safe-area-inset-bottom, 0px));
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: stretch;
   gap: 1rem;
   border-radius: 20px 20px 0 0;
   z-index: 100;
 }
 
-.feedback-bar p {
-  margin: 0;
-  font-size: 1rem;
-  font-weight: 500;
+.feedback-bar__text {
+  max-height: 40vh;
+  overflow-y: auto;
+}
+
+.feedback-bar__title {
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.feedback-bar__title i {
+  font-size: 19px;
+  margin-right: 0.3rem;
+}
+
+.feedback-bar__explanation {
+  margin-top: 0.5rem;
+  font-weight: 400;
+  line-height: 1.4;
+  font-size: 14px;
+  font-style: italic;
 }
 
 .feedback-bar button {
   padding: 0.75rem 1.25rem;
   border: none;
   border-radius: 20px;
-  font-weight: 700;
   cursor: pointer;
   font-size: 16px;
   font-family: inherit;
   font-weight: 500;
 }
 
-/* Respuesta correcta */
+.questions--with-feedback {
+  padding-bottom: 14rem;
+}
+
+/* respuesta correcta */
 .feedback-bar--correct {
   border: thin solid var(--success);
   background-color: #3ddc9734;
@@ -427,7 +563,7 @@ h2, h3 {
   color: var(--deep-blue);
 }
 
-/* Respuesta incorrecta */
+/* respuesta incorrecta */
 .feedback-bar--wrong {
   border: thin solid var(--danger);
   background-color: #ff5c7a1a;
@@ -439,3 +575,40 @@ h2, h3 {
   color: var(--deep-blue);
 }
 
+/* -------------- lesson complete -------------- */
+
+.lesson-finished {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 1rem;
+}
+
+.lesson-complete {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.lesson-complete__card {
+  width: 100%;
+  max-width: 400px;
+  box-sizing: border-box;
+  background-color: var(--light-blue);
+  padding: 2rem;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+
+.lesson-complete .main-button {
+  width: 100%;
+}

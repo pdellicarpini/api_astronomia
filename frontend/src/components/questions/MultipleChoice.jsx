@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-function MultipleChoice({ question, onAnswer }) {
+function MultipleChoice({ question, onAnswer, className = '' }) {
     const [selected, setSelected] = useState(null);
     const [checked, setChecked] = useState(false);
 
@@ -10,7 +10,7 @@ function MultipleChoice({ question, onAnswer }) {
     }
 
     return (
-        <div className='multiple-choice'>
+        <div className={`multiple-choice ${className}`}>
             <h3>{ question.question }</h3>
             <div>
                 <ul>

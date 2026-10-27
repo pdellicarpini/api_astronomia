@@ -1,10 +1,25 @@
 import { useEffect, useState } from 'react';
+import shuffle from '../../utils/shuffle.js';
 
 function Matching({ question, onAnswer }) {
     const [leftSelect, setLeftSelect] = useState(null);
     const [rightSelect, setRightSelect] = useState(null);
     const [matchedPairs, setMatchedPairs] = useState([]);
     const isWrongPair = leftSelect !== null && rightSelect !== null
+
+    // estados para mezclar las columnas
+    const [leftItems] = useState(() => 
+        shuffle(question.options.map((option, index) => ({
+            text: option,
+            originalIndex: index
+        })))
+    );
+    const [rightItems] = useState(() => 
+        shuffle(question.matchOptions.map((matchOption, index) => ({
+            text: matchOption,
+            originalIndex: index
+        })))
+    );
 
     function handleRightClick(index) {
         if (leftSelect === null) {
@@ -51,29 +66,33 @@ function Matching({ question, onAnswer }) {
             <h3>{ question.question }</h3>
             <div>
                 <ul className='matching-left-column'>
-                    { question.options.map((option, index) => (
-                        <li key={ option }>
+                    { leftItems.map(item => (
+                        <li key={ item.text }>
                             <button
-                                onClick={ () => handleLeftClick(index) }
-                                aria-pressed={ leftSelect === index }
-                                disabled={ matchedPairs.includes(index) || isWrongPair }
-                                className={ `button-option ${ matchedPairs.includes(index) ? 'button-matching--correct' : '' } ${ isWrongPair && leftSelect === index ? 'button-matching--wrong' : '' }` }
+                                onClick={ () => handleLeftClick(item.originalIndex) }
+                                aria-pressed={ leftSelect === item.originalIndex }
+                                disabled={ matchedPairs.includes(item.originalIndex) || isWrongPair }
+                                className={ `button-option 
+                                    ${ matchedPairs.includes(item.originalIndex) ? 'button-matching--correct' : '' } 
+                                    ${ isWrongPair && leftSelect === item.originalIndex ? 'button-matching--wrong' : '' }` }
                             >
-                                { option }
+                                { item.text }
                             </button>
                         </li>
                     ))}
                 </ul>
                 <ul className='matching-right-column'>
-                    { question.matchOptions.map((matchOption, index) => (
-                        <li key={ matchOption }>
+                    { rightItems.map(item => (
+                        <li key={ item.text }>
                             <button
-                                onClick={ () => handleRightClick(index) }
-                                aria-pressed={ rightSelect === index }
-                                disabled={ matchedPairs.includes(index) || isWrongPair }                          
-                                className={ `button-option ${ matchedPairs.includes(index) ? 'button-matching--correct' : '' } ${ isWrongPair && rightSelect === index ? 'button-matching--wrong' : '' }` }
+                                onClick={ () => handleRightClick(item.originalIndex) }
+                                aria-pressed={ rightSelect === item.originalIndex }
+                                disabled={ matchedPairs.includes(item.originalIndex) || isWrongPair }                          
+                                className={ `button-option 
+                                    ${ matchedPairs.includes(item.originalIndex) ? 'button-matching--correct' : '' } 
+                                    ${ isWrongPair && rightSelect === item.originalIndex ? 'button-matching--wrong' : '' }` }
                             >
-                                { matchOption }
+                                { item.text }
                             </button>
                         </li>
                     ))}

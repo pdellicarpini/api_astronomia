@@ -1,21 +1,13 @@
-const API_URL = import.meta.env.VITE_API_URL;
+import axios from "axios";
 
-export async function fetchLevels() {
-    const res = await fetch(`${API_URL}/api/levels`);
+const api = axios.create({
+    baseURL: import.meta.env.VITE_API_URL || "http://localhost:3000/api",
+});
 
-    if (!res.ok) {
-        throw new Error('Error de conexión con el servidor.');
-    }
+api.interceptors.request.use((config) => {
+    const token = localStorage.getItem("token");
+    if (token) config.headers.Authorization = `Bearer ${token}`;
+    return config;
+});
 
-    return res.json();
-}
-
-export async function fetchQuestions() {
-    const res = await fetch(`${API_URL}/api/questions`);
-
-    if (!res.ok) {
-        throw new Error('Error de conexión con el servidor.');
-    }
-
-    return res.json();
-}
+export default api;
