@@ -2,12 +2,9 @@ import streakIcon from '../../assets/streak.png';
 
 function StreakBadge({ streak }) {
     return (
-        <div className="streak-badge">
+        <div className="streak-badge pill-box">
             <img src={ streakIcon } alt="Ícono de racha" className="streak-icon"/>
-            <div>
-                <p>{ streak }</p>
-                <p>{ streak === 1 ? 'día' : 'días' }</p>
-            </div>
+                <p>{ streak } { streak === 1 ? 'día' : 'días' }</p>
         </div>
     )
 }

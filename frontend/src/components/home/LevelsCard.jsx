@@ -1,34 +1,54 @@
 import { useState } from 'react';
 
-function LevelsCard({ currentLevel, levels }) {
+function LevelsCard({ currentLevel, levels, completed, total }) {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <>
-            <div className='level-card'>
+        <section className='level-card card'> 
+            <div className='level-card__top'>
                 <div>
-                    <p>Nivel { currentLevel.order }</p>
-                    <h2>{ currentLevel.name }</h2>
-                    <p>1 de 5 lecciones completadas</p>
+                    <p className='label text-info'>Nivel { currentLevel.order }</p>
+                    <h2 className='title title--lg'>{ currentLevel.name }</h2>
                 </div>
 
-                <button onClick={ () => setIsOpen(!isOpen)}>
-                    { isOpen ? 'Volver' : <i className="bi bi-chevron-right"></i> }
+                <button 
+                    className='level-card__toggle'
+                    onClick={ () => setIsOpen(!isOpen)}
+                    aria-expanded={ isOpen }
+                    aria-label={ isOpen ? 'Ocultar niveles' : 'Ver todos los niveles'}
+                    >
+                    <i className='bi bi-chevron-down'></i>
                 </button>
             </div>
-            <div>
-                { isOpen && (
-                    <ul className='flex-column'>
-                        { levels.map(level => (
-                            <li key={ level._id } className='level-card flex-column'>
-                                <p>Nivel { level.order }</p> 
-                                <h2>{ level.name }</h2>
-                            </li>
-                        )) }
-                    </ul>
-                )}
+            <div className='segments' aria-hidden='true'>
+                { Array.from({ length: total }, (_, i) => (
+                    <span key={ i } className={ i < completed ? 'is-done' : '' }></span>
+                ))}
             </div>
-        </>
+            <p className='label text-soft'>{ completed } de { total } lecciones completadas</p>
+            
+            { isOpen && (
+                <ul className='level-list'>
+                    { levels.map(level => {
+                        const isCurrent = level._id === currentLevel._id;
+                        const isLocked = level.order > currentLevel.order;
+
+                        return (
+                            <li 
+                                key={ level._id } 
+                                className={ `card card--row level-item ${ isLocked ? 'card--locked' : '' } ${ isCurrent ? 'level-item--current' : '' }` }>
+                                <div>
+                                    <p className='label text-soft'>Nivel { level.order }</p>
+                                    <h3 className='title'>{ level.name }</h3>
+                                </div>  
+                                { isCurrent && <span className='chip'>Estás acá</span> }
+                                { isLocked && <i className='bi bi-lock-fill text-muted'></i> }
+                            </li>
+                        )
+                    })}
+                </ul>
+            )}
+        </section>
     );
 }
 

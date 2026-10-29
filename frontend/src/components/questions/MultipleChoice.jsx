@@ -27,7 +27,7 @@ function MultipleChoice({ question, onAnswer, className = '' }) {
                         </li>
                     ))}
                 </ul>
-                <button onClick={ handleCheck } disabled={ selected === null || checked } className='send-button'>
+                <button onClick={ handleCheck } disabled={ selected === null || checked } className='main-button'>
                     Enviar
                 </button>
             </div>

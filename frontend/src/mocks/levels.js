@@ -10,5 +10,11 @@ export const levels = [
         "name": "Explorador Espacial",
         "description": "Ampliá tus conocimientos y comenzá a explorar los principales cuerpos y fenómenos del espacio.",
         "order": 2
+    },
+    {
+        "_id": "6ad2b0dd4f2asdfafse22295e",
+        "name": "Viajador Intergaláctico",
+        "description": "Ampliá tus conocimientos y comenzá a explorar los principales cuerpos y fenómenos del espacio.",
+        "order": 3
     }
 ];

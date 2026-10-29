@@ -64,7 +64,7 @@ function Matching({ question, onAnswer }) {
     return (
         <div className='matching'>
             <h3>{ question.question }</h3>
-            <div>
+                <div className='matching-columns'>
                 <ul className='matching-left-column'>
                     { leftItems.map(item => (
                         <li key={ item.text }>
