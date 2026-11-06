@@ -1,0 +1,9 @@
+.event-type {
+    border: thin solid var(--white);
+    width: fit-content;
+    padding: 4px 8px;
+    border-radius: var(--pill);
+    display: flex;
+    gap: 8px;
+    font-size: small;
+}

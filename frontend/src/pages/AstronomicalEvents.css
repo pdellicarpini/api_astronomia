@@ -1,0 +1,27 @@
+/* ---------- tipo de eventos iconos ---------- */
+
+.icon-solstice {
+    color: var(--gold);
+}
+
+.icon-meteor {
+    color: var(--light-orange);
+}
+
+.icon-moon {
+    color: var(--info);
+}
+
+.icon-eclipse {
+    color: var(--danger);
+}
+
+.icon-planet {
+    color: var(--success);
+}
+
+.astronomical-calendar-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}

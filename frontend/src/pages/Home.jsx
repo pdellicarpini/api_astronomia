@@ -30,7 +30,7 @@ function Home() {
     const completedCount = lessons.filter(lesson => lesson.status === 'completed').length;
 
     return (
-        <main className='home'>
+        <main className='main-container'>
             <header className='user-header'>
                 <ProfileHeader
                     avatar={ currentUser.profileImg }

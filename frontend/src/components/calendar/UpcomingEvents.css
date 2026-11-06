@@ -1,0 +1,43 @@
+.upcoming-events--section a {
+    font-size: small;
+}
+
+.upcoming-events--section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.upcoming-events--card {
+    background-color: var(--deep-blue);
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 10px 20px;
+}
+
+.upcoming-events--toggle {
+    border: none;
+    background-color: transparent;
+}
+
+.upcoming-events--info {
+    display: flex;
+    gap: 20px;
+}
+
+.upcoming-events--info-date {
+    text-transform: uppercase;
+    font-size: small;
+    color: var(--text-soft);
+}
+
+.upcoming-events--info-date p:first-child {
+    font-size: 20px;
+    color: var(--white);
+}
+
+.upcoming-events--type {
+    color: var(--text-soft);
+    border: none;
+}

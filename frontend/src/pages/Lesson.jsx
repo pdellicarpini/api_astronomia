@@ -8,8 +8,7 @@ import useLessonSession from '../hooks/useLessonSession';
 
 import { questions } from '../mocks/questions';
 import { lessons } from '../mocks/lessons';
-import { currentUser } from '../mocks/users.js';        
-// const [isExiting, useIsExiting] = use        
+import { currentUser } from '../mocks/users.js';              
 
 function Lesson() {
     const { id } = useParams();

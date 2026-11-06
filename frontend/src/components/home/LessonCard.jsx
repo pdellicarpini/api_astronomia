@@ -16,7 +16,7 @@ const states = {
         card: 'card card--locked',  
         icon: 'bi bi-lock-fill', 
         color: 'text-muted',  
-        suffix: '· Bloqueada' },
+        suffix: ' · Bloqueada' },
 }
 
 function LessonCard({ lesson, status, previusStatus, isLast, onStart }) {

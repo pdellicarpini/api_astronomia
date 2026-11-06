@@ -21,9 +21,22 @@
   --pill: 999px;
   --text-soft: #C9C5EE;
   --text-muted: #8a90c9; 
+
+  --card-font-size: 15px;
 }
 
 /* ---------- tipografía ---------- */
+
+.card {
+  padding: 18px;
+  background: var(--asteria-blue);
+  border: 1px solid var(--light-blue);
+  border-radius: var(--card-radius);
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
 
 * {
   margin: 0;
@@ -48,6 +61,10 @@ h1, h2, h3, strong {
   line-height: 1.25;
 }
 
+.subtitle {
+  font-size: 18px;
+}
+
 .title--lg {
   font-size: 22px;
 }
@@ -55,6 +72,10 @@ h1, h2, h3, strong {
 .text {
   font-size: 16px;
   line-height: 1.45;
+}
+
+.text-small {
+  font-size: 14px
 }
 
 .text-soft { 
@@ -84,8 +105,8 @@ h1, h2, h3, strong {
 /* ---------- generales ---------- */
 
 body {
-  background: #180D61;
-  background: linear-gradient(0deg, rgba(24, 13, 97, 1) 0%, rgba(13, 7, 56, 1) 100%);
+  background: var(--deep-blue);
+  /* background: linear-gradient(0deg, rgba(24, 13, 97, 1) 0%, rgba(13, 7, 56, 1) 100%); */
 }
 
 .pill-box {
@@ -119,7 +140,6 @@ body {
   align-self: flex-end; */
   font-size: 16px;
   font-family: inherit;
-  font-weight: 600;
   cursor: pointer;
   transition: transform 0.3s ease,
               background-color 0.3s ease,
@@ -176,7 +196,7 @@ body {
   outline-offset: 2px;
 }
 
-.home {
+.main-container {
   padding: 0.5rem 0;
   margin: 1rem;
 }
@@ -242,14 +262,6 @@ body {
 }
 
 /* -------------- lessons --------------*/
-
-.card {
-  padding: 16px;
-  background: var(--asteria-blue);
-  border: 1px solid var(--light-blue);
-  border-radius: var(--card-radius);
-  color: var(--white);
-}
 
 .card--current { 
   background: var(--light-blue); 
@@ -605,14 +617,14 @@ progress::-moz-progress-bar {
 }
 
 /* Botón enviar */
-.multiple-choice .main-button {
+.multiple-choice.main-button {
     width: 100%;
     margin-top: auto;
     align-self: flex-end;
     background-color: var(--asteria-orange);
 }
 
-.multiple-choice .main-button:hover {
+.multiple-choice.main-button:hover {
     background-color: var(--light-blue);
 }
 

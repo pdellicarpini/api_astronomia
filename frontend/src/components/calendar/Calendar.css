@@ -1,0 +1,82 @@
+#_r_0_title {
+    text-transform: capitalize;
+}
+
+.calendar-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.asteria-calendar {
+    width: 100%;
+    max-width: 700px;
+    margin-inline: auto;
+}
+
+.calendar-toolbar-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.calendar-nav-button {
+    background-color: var(--asteria-blue);
+    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+    border: thin solid var(--light-blue);
+}
+
+.calendar-day-top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+
+.calendar-today [aria-hidden='true'] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    min-width: 30px;
+    border-radius: 50%;
+    border: thin solid var(--white);
+    box-sizing: border-box;
+}
+
+.calendar-week-row, .calendar-days-header {
+    margin: 3px 0 ;
+}
+
+.calendar-days-header {
+    color: var(--text-muted);
+    font-size: small;
+}
+
+.calendar-day-other {
+    opacity: 0.5;
+    color: var(--text-muted);
+}
+
+.events-type {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    gap: 5px 20px;
+}
+
+.events-type li {
+    display: flex;
+    gap: 5px;
+    font-size: small;
+}
+
+.calendar-event {
+    display: flex;
+    justify-content: center;
+    font-size: small;
+}
