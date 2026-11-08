@@ -34,7 +34,8 @@
     align-items: center;
     }
 
-.calendar-today [aria-hidden='true'] {
+.calendar-today [aria-hidden='true'],
+.calendar-day-selected [aria-hidden='true'] {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -42,8 +43,16 @@
     height: 30px;
     min-width: 30px;
     border-radius: 50%;
-    border: thin solid var(--white);
     box-sizing: border-box;
+}
+
+.calendar-today [aria-hidden='true'] {
+    border: thin solid var(--white);
+}
+
+.calendar-day-selected [aria-hidden='true'] {
+    background-color: var(--asteria-orange);
+    color: var(--deep-blue);
 }
 
 .calendar-week-row, .calendar-days-header {
@@ -75,8 +84,16 @@
     font-size: small;
 }
 
-.calendar-event {
+.calendar-day-events {
     display: flex;
+    flex-direction: row;
+    align-items: center;
     justify-content: center;
-    font-size: small;
+    gap: 5px;
+    font-size: 12px;
+}
+
+.calendar-day-events [role="listitem"] {
+    position: static !important;
+    width: auto !important;
 }

@@ -1,4 +1,3 @@
-
 function LessonComplete({ mistakes, onExit, user, xpEarned = 15 }) {
     const precision = 100 - (mistakes * 100 / 8);
     return (

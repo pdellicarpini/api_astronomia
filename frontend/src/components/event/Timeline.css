@@ -1,0 +1,79 @@
+/* timeline */
+
+.timeline-card {
+    padding: 14px;
+    border: 1px solid var(--asteria-orange);
+}
+
+.timeline-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.timeline-title i {
+    color: var(--light-orange);
+}
+
+.timeline-track {
+    position: relative;
+    /* el marcador y la etiqueta se miden desde acá */
+    height: 8px;
+    margin: 36px 4px 0;
+    /* el margen de arriba deja lugar para la etiqueta */
+    border-radius: 4px;
+    background: var(--light-blue);
+}
+
+.timeline-fill {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    border-radius: 4px;
+    background: var(--asteria-orange);
+}
+
+.timeline-marker {
+    position: absolute;
+    top: 50%;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--asteria-orange);
+    border: 3px solid var(--asteria-blue);
+    box-shadow: 0 0 0 2px var(--asteria-orange);
+    transform: translate(-50%, -50%);
+    /* centra el círculo en su posición */
+}
+
+.timeline-peak-label {
+    position: absolute;
+    top: -26px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--light-orange);
+    white-space: nowrap;
+}
+
+.timeline-peak-label--center {
+    transform: translateX(-50%);
+}
+
+.timeline-peak-label--start {
+    left: 0;
+}
+
+.timeline-peak-label--end {
+    right: 0;
+}
+
+.timeline-ends {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 12px;
+    font-size: 12px;
+    color: var(--text-soft);
+}

@@ -33,7 +33,7 @@ function Lesson() {
     }
     
     return (
-        <main className={ `questions 
+        <main className={ `questions container-animation 
         ${ lastResult !== null ? 'questions--with-feedback' : '' }` }>
             <div className='lesson-banner'>
                 <div className='lesson-banner__text'>

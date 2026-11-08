@@ -1,0 +1,48 @@
+.day-events-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.day-events-section .main-button {
+    background-color: var(--deep-blue);
+    color: var(--light-orange);
+    border: thin solid var(--light-blue);
+    display: flex;
+    gap: 10px;
+    align-self: flex-start;
+
+}
+
+.day-events-section span {
+    background-color: var(--light-blue);
+}
+
+.day-events--no-events {
+    border: thin dashed var(--light-blue);
+    background-color: transparent;
+    text-align: center;
+    align-items: center;
+    gap: 0;
+}
+
+.day-events--no-events i {
+    font-size: 30px;
+    color: var(--info);
+}
+
+.day-events--no-events .subtitle {
+    font-weight: 600;
+}
+
+.day-events-card {
+    flex-direction: row;
+}
+
+.day-events-card button {
+    margin-left: auto;
+}
+
+.upcoming-events--info-date i {
+    font-size: 25px;
+}

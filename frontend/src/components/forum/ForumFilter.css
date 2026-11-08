@@ -1,0 +1,33 @@
+/* filtros  */
+
+.forum-filter {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+}
+
+.forum-filter::-webkit-scrollbar {
+    display: none;
+}
+
+.forum-filter button {
+    border: none;
+    padding: 10px 15px;
+    color: var(--text-soft);
+}
+
+.forum-filter .active {
+    background-color: var(--asteria-orange);
+    color: var(--deep-blue);
+    transition: 0.3s;
+}
+
+.forum-filter li {
+    list-style: none;
+}
+
+.forum-interactions p:last-child {
+    margin-left: auto;
+}

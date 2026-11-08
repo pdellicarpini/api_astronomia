@@ -1,0 +1,25 @@
+/* event grid */
+
+.event-details--grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+}
+
+.fact-highlight {
+    background-color: var(--asteria-orange);
+    color: var(--deep-blue);
+    border: thin solid var(--light-orange);
+}
+
+.fact-tile {
+    gap: 0;
+}
+
+.info-card div span {
+    width: fit-content;
+    padding: 5px 15px;
+    border-radius: var(--pill);
+    border: thin solid var(--light-orange);
+    font-size: 14px;
+}

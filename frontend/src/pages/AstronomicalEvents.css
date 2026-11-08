@@ -19,9 +19,3 @@
 .icon-planet {
     color: var(--success);
 }
-
-.astronomical-calendar-container {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}

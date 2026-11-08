@@ -1,0 +1,40 @@
+/* tarjeta de posteo */
+
+.forum-user {
+    display: flex;
+    align-items: self-start;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.forum-user .pill-box {
+    background-color: var(--light-blue);
+    color: var(--gold);
+}
+
+.forum-user--info,
+.forum-user--info > div {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.avatar-placeholder {
+    background-color: #e9eaf0;
+}
+
+.forum-interactions button {
+    border: none;
+    background-color: transparent;
+}
+
+.forum-comment {
+    background-color: var(--light-blue);
+    color: var(--text-muted);
+    height: 50px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    border-radius: var(--card-radius);
+}

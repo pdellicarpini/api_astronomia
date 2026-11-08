@@ -5,8 +5,9 @@ export const events = [
         slug: 'lluvia-de-meteoros-leonidas-noviembre-2026',
         type: 'meteor_shower',
         description:
-            'Las Leónidas son una lluvia de meteoros originada por los restos del cometa 55P/Tempel-Tuttle. Cuando la Tierra atraviesa la nube de partículas que deja este cometa, los fragmentos ingresan a la atmósfera a gran velocidad y producen destellos luminosos conocidos como estrellas fugaces.',
+            'Las Leónidas son una lluvia de meteoros originada por los restos del cometa "55P/Tempel-Tuttle". Cuando la Tierra atraviesa la nube de partículas que deja este cometa, los fragmentos ingresan a la atmósfera a gran velocidad y producen destellos luminosos conocidos como estrellas fugaces.',
         startDate: '2026-11-14T00:00:00-03:00',
+        peakDate: '2026-11-17T00:00:00-03:00',
         endDate: '2026-11-21T23:59:59-03:00',
         isAllDay: false,
         visibility: ['Argentina'],
@@ -23,8 +24,8 @@ export const events = [
         description:
             'La Luna nueva ocurre cuando nuestro satélite se encuentra aproximadamente entre la Tierra y el Sol. Desde nuestra perspectiva, su cara iluminada queda orientada en dirección opuesta a la Tierra, por lo que resulta prácticamente invisible en el cielo nocturno.',
         startDate: '2026-11-09T00:00:00-03:00',
-        endDate: '2026-11-09T23:59:59-03:00',
         peakDate: '2026-11-09T04:00:00-03:00',
+        endDate: '2026-11-09T23:59:59-03:00',
         isAllDay: true,
         visibility: ['Global'],
         visibilityDescription:
@@ -40,8 +41,8 @@ export const events = [
         description:
             'Una conjunción planetaria sucede cuando dos o más planetas parecen acercarse entre sí en el cielo desde nuestra perspectiva terrestre. Aunque visualmente se encuentren próximos, en realidad continúan separados por enormes distancias en el espacio.',
         startDate: '2026-11-24T00:00:00-03:00',
-        endDate: '2026-11-24T23:59:59-03:00',
         peakDate: '2026-11-24T20:30:00-03:00',
+        endDate: '2026-11-24T23:59:59-03:00',
         isAllDay: false,
         visibility: ['Sudamérica'],
         visibilityDescription:
@@ -57,8 +58,8 @@ export const events = [
         description:
             'El solsticio de verano ocurre cuando uno de los hemisferios terrestres alcanza su máxima inclinación hacia el Sol. Esto provoca el día con mayor cantidad de horas de luz solar del año y marca el comienzo astronómico del verano.',
         startDate: '2026-12-21T00:00:00-03:00',
-        endDate: '2026-12-21T23:59:59-03:00',
         peakDate: '2026-12-21T17:00:00-03:00',
+        endDate: '2026-12-21T23:59:59-03:00',
         isAllDay: true,
         visibility: ['Sudamérica'],
         visibilityDescription:
@@ -74,8 +75,8 @@ export const events = [
         description:
             'Las Gemínidas son una de las lluvias de meteoros más intensas del año. Se originan a partir de partículas desprendidas del asteroide 3200 Faetón, que ingresan a la atmósfera terrestre y generan brillantes trazos luminosos.',
         startDate: '2026-12-04T00:00:00-03:00',
-        endDate: '2026-12-17T23:59:59-03:00',
         peakDate: '2026-12-14T02:00:00-03:00',
+        endDate: '2026-12-17T23:59:59-03:00',
         isAllDay: false,
         visibility: ['Argentina'],
         visibilityDescription:

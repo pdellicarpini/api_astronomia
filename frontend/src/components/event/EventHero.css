@@ -1,0 +1,27 @@
+/* event hero */
+
+.event-hero-card > i {
+    font-size: 50px;
+}
+
+.event-hero-card {
+    background-color: var(--light-blue);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    height: 150px;
+}
+
+.event-hero--badge {
+    position: absolute;
+    left: 12px;
+    bottom: 12px;
+    font-size: small;
+    display: flex;
+    gap: 10px;
+    background-color: var(--deep-blue);
+    padding: 5px 15px;    
+    border-radius: var(--pill);
+    border: thin solid var(--text-muted);
+}

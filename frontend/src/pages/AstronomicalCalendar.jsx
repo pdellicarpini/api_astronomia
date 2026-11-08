@@ -1,12 +1,29 @@
+import './AstronomicalEvents.css';
 import Calendar from '../components/calendar/Calendar.jsx';
 import NextEvent from '../components/calendar/NextEvent.jsx';
 import UpcomingEvents from '../components/calendar/UpcomingEvents.jsx';
-import './AstronomicalEvents.css';
+import DayEvents from '../components/calendar/DayEvents.jsx';
+import Navbar from '../components/common/Navbar.jsx';
 import { events } from '../mocks/events.js';
 import { typeIcons } from '../constants/typeIcons.js';
 import { getEventDate } from '../utils/getEventDate.js';
+import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import { formatEventDate, toDateKey } from '../utils/formatEventDate.js';
 
 export default function AstronomicalCalendar() {
+  const [selectedDay, setSelectedDay] = useState(null);
+  const navigate = useNavigate();
+
+  // handlers
+  function handleEventClick(eventSlug) {
+    navigate(`/evento/${eventSlug}`);
+  }
+
+  function handleDayClick(dateStr) {
+    setSelectedDay(selectedDay === dateStr ? null : dateStr);
+  }
+
   const eventsList = events.map(event => {
     return {
       id: event._id,
@@ -20,6 +37,9 @@ export default function AstronomicalCalendar() {
       }
     }
   })
+
+  // día seleccionado en el calendario
+  const dayEvents = selectedDay ? events.filter((event) => toDateKey(getEventDate(event)) === selectedDay) : [];
 
   function showIcons(info) {
     const type = info.event.extendedProps.type;
@@ -47,18 +67,32 @@ export default function AstronomicalCalendar() {
   const nextEvent = upcomingEvents[0]
 
   return (
-    <main className='main-container astronomical-calendar-container'>
-      <Calendar events={eventsList} icons={showIcons} />
-      
-      {nextEvent ? (
-        <NextEvent event={nextEvent} />
-      ) : (
-        <p>No hay próximos eventos astronómicos.</p>
-      )}
+    <>
+    <main className='main-container container-animation'>
+      <Calendar onDayClick={ handleDayClick } events={eventsList} icons={showIcons} />
 
-      {nextFiveEvents.length > 0 && (
-        <UpcomingEvents events={nextFiveEvents} />
+      { selectedDay ? (
+        <DayEvents 
+        title={ formatEventDate(selectedDay)}
+        events={ dayEvents }
+        onBack={() => setSelectedDay(null)}
+        onClick={handleEventClick}
+        />
+      ) : (
+        <>
+          { nextEvent ? (
+            <NextEvent onClick={ handleEventClick } event={ nextEvent } />
+          ) : (
+            <p>No hay próximos eventos astronómicos.</p>
+          )}
+
+          {nextFiveEvents.length > 0 && (
+            <UpcomingEvents onClick={handleEventClick} events={ nextFiveEvents } />
+          )}
+            </>
       )}
     </main>
+    <Navbar />
+    </>
   );
 }

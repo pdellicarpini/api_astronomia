@@ -111,7 +111,7 @@ class UserController {
         }
     }
 
-    async uploadProfileImage (req, res) {   
+    async uploadProfileImg (req, res) {   
         try {
             if (!req.file) {
                 return res.status(400).json({ msg: 'No se proporcionó una imagen de perfil', data: {} });
@@ -120,7 +120,7 @@ class UserController {
 
             const imagePath = `uploads/profiles/${req.file.filename}`;
 
-            const user = await UserModel.findByIdAndUpdate(userId, { profileImage: imagePath }, { new: true });
+            const user = await UserModel.findByIdAndUpdate(userId, { profileImg: imagePath }, { new: true });
             if (!user) {
                 return res.status(404).json({ msg: 'Usuario no encontrado', data: {} });
             }

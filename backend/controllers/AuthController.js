@@ -77,7 +77,7 @@ class AuthController {
             );
 
             res.status(200).json({
-                msg: 'Usuario logueado correctamente', data: { id: userData._id, email: userData.email, role: userData.role },
+                msg: 'Usuario logueado correctamente', data: { id: userData._id, email: userData.email, role: userData.role, name: userData.name, profileImg: userData.profileImg },
                 token
             });
 

@@ -18,7 +18,7 @@ const userSchema = new Schema({
         type: String,
         required: true
     },
-    profileImage: {
+    profileImg: {
         type: String,
         default: null
     },
@@ -26,6 +26,20 @@ const userSchema = new Schema({
         type: String,
         enum: ['user', 'admin'],
         default: 'user'
+    },
+    streak: {
+        current: {
+            type: Number,
+            default: 0
+        },
+        lastActivityAt: {
+            type: Date,
+            default: null
+        }
+    },
+    level: {
+        type: String,
+        default: 'Aprendiz del Cielo'
     }
 });
 

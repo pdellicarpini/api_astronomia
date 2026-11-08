@@ -23,13 +23,23 @@
 
 .upcoming-events--info {
     display: flex;
-    gap: 20px;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
 }
 
 .upcoming-events--info-date {
     text-transform: uppercase;
     font-size: small;
     color: var(--text-soft);
+    background-color: var(--light-blue);
+    padding: 5px 10px;
+    border-radius: var(--card-radius);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
 }
 
 .upcoming-events--info-date p:first-child {
@@ -40,4 +50,5 @@
 .upcoming-events--type {
     color: var(--text-soft);
     border: none;
+    padding: 0;
 }

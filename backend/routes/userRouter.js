@@ -11,6 +11,6 @@ router.get('/', user.getUsers);
 router.get('/:id', user.getUserById);
 router.delete('/:id', user.deleteUserById);
 router.put('/:id', user.updateUserById);
-router.post('/profile-image', uploadMiddleware.single('profileImage'), user.uploadProfileImage);
+router.post('/profile-image', uploadMiddleware.single('profileImg'), user.uploadProfileImg);
 
 export default router;

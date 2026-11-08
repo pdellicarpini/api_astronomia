@@ -102,16 +102,25 @@ h1, h2, h3, strong {
   color: var(--asteria-orange);
 }
 
+.text-red {
+  color: var(--danger);
+}
+
+.text-green { color: var(--success); }
+
+.text-bold { font-weight: 600; }
+
 /* ---------- generales ---------- */
 
 body {
   background: var(--deep-blue);
-  /* background: linear-gradient(0deg, rgba(24, 13, 97, 1) 0%, rgba(13, 7, 56, 1) 100%); */
+  /* background: linear-gradient(0deg, rgba(24, 13, 97, 0.637) 0%, rgba(13, 7, 56, 1) 100%); */
 }
 
 .pill-box {
   border-radius: var(--pill);
   background-color: var(--asteria-blue);
+  padding: 5px 10px;
 }
 
 /* ---------- botones ---------- */
@@ -199,6 +208,10 @@ body {
 .main-container {
   padding: 0.5rem 0;
   margin: 1rem;
+  gap: 20px;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 80px;
 }
 
 /* -------------- header -------------- */
@@ -224,7 +237,7 @@ body {
   font-size: 14px;
 }
 
-.profile-header img, 
+.profile-img, 
 .avatar-placeholder {
   border-radius: 50%;
   width: 44px;
@@ -403,7 +416,6 @@ body {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  margin: 1rem 0;
 }
 
 .level-card__top {
@@ -514,27 +526,26 @@ progress::-moz-progress-bar {
   flex-direction: column;
 }
 
-/* Entrada de la lección */
-.questions {
-    animation: lesson-enter 0.45s ease-out both;
+/* animación de lección */
+.container-animation {
+  animation: page-enter 0.45s ease-out both;
 }
 
-@keyframes lesson-enter {
-    from {
-        opacity: 0;
-        transform: translateY(12px);
-    }
+@keyframes page-enter {
+  from {
+      opacity: 0;
+      transform: translateY(12px);
+  }
 
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
 }
 
-/* Respetar la preferencia de movimiento reducido */
 @media (prefers-reduced-motion: reduce) {
-    .questions {
-        animation: none;
+  .container-animation {
+    animation: none;
     }
 }
 
@@ -842,8 +853,6 @@ progress::-moz-progress-bar {
     color: var(--white);
 }
 
-/* Felicitación */
-
 .lesson-complete__feedback {
     display: flex;
     flex-direction: column;
@@ -957,8 +966,6 @@ progress::-moz-progress-bar {
     width: 100%;
 }
 
-/* Pantallas pequeñas */
-
 @media (max-width: 480px) {
     .lesson-complete {
         gap: 1.25rem;
@@ -971,24 +978,21 @@ progress::-moz-progress-bar {
 }
 
 
-/* Entrada general de la pantalla */
+/* animación  */
 .lesson-complete {
     animation: lesson-reveal 0.45s ease-out both;
 }
 
-/* El ícono aparece con un pequeño rebote */
 .lesson-complete__icon {
     animation: lesson-icon-pop 0.55s cubic-bezier(0.2, 0.8, 0.2, 1.2) both;
     animation-delay: 0.1s;
 }
 
-/* La recompensa aparece después de la felicitación */
 .lesson-complete__xp {
     animation: lesson-slide-up 0.45s ease-out both;
     animation-delay: 0.25s;
 }
 
-/* La tarjeta de estadísticas aparece al final */
 .lesson-complete__card {
     animation: lesson-slide-up 0.45s ease-out both;
     animation-delay: 0.4s;
@@ -1028,7 +1032,6 @@ progress::-moz-progress-bar {
     }
 }
 
-/* Accesibilidad */
 @media (prefers-reduced-motion: reduce) {
     .lesson-complete,
     .lesson-complete__icon,
@@ -1037,7 +1040,6 @@ progress::-moz-progress-bar {
         animation: none;
     }
 }
-
 
 /* -------------- register -------------- */
 

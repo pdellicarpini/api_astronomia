@@ -1,15 +1,19 @@
 import './UpcomingEvents.css';
-import { typeLabels } from '../../constants/typeLabels';
-import { typeIcons } from '../../constants/typeIcons.js';
 import EventType from '../common/EventType.jsx';
 
-function UpcomingEvents({ events }) {
+function UpcomingEvents({ events, onClick }) {
     return (
         <section className='upcoming-events--section'>
             <h2 className='subtitle'>Más adelante</h2>
             { events.map(event => {
                 return (
-                    <div role="button" tabIndex="0" className='upcoming-events--card card' key={event.id}>
+                    <div 
+                        role="button" 
+                        tabIndex="0" 
+                        onClick={ () => onClick(event.extendedProps.slug)} 
+                        className='upcoming-events--card card' 
+                        key={event.id}
+                    >
                         <div className='upcoming-events--info'>
                             <div className='text-center upcoming-events--info-date'>
                                 <p>{event.date.getDate()}</p>
@@ -19,7 +23,7 @@ function UpcomingEvents({ events }) {
                             </div>
                             <div>
                                 <p>{event.title}</p>
-                                <EventType className='upcoming-events--type' event={ event }/>
+                                <EventType className='upcoming-events--type' type={ event.extendedProps.type }/>
                             </div>
                         </div>
                         <button className='upcoming-events--toggle'><i className="bi bi-chevron-right align-self-center"></i></button>
