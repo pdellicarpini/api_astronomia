@@ -47,7 +47,7 @@ const postSchema = new Schema({
         type: Schema.Types.ObjectId, 
         ref: 'User' 
     }],
-    comment: [commentSchema]
+    comments: [commentSchema]
 }, { timestamps: true });
 
 const PostModel = mongoose.model('Post', postSchema);

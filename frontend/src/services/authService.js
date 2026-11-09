@@ -1,32 +1,24 @@
 import api from './api.js';
 
-export async function login (email, password) {
+function getErrorMessage(error) {
+    return error.response?.data?.msg || 'No se pudo conectar con el servidor.';
+}
+
+export async function login(email, password) {
     try {
-        const { data } = await api.post('/api/auth/login', { email, password });
+        const { data } = await api.post('/auth/login', { email, password });
         return data;
     } catch (error) {
-        error.response?.data?.message || 'No se pudo conectar con el servidor.'
+        throw new Error(getErrorMessage(error));
     }
 }
 
 export async function register(userData) {
     try {
-        const { data } = await api.post('/api/auth/register', userData);
+        const { data } = await api.post('/auth/register', userData);
         return data;
     } catch (error) {
-        error.response?.data?.message || 'No se pudo conectar con el servidor.'
+        throw new Error(getErrorMessage(error));
     }
-}    
+}
 
-
-// const [error, setError] = useState("");
-
-// const handleSubmit = async (e) => {
-//   e.preventDefault();
-//   try {
-//     const data = await login(email, password);
-//     // guardar token, redirigir, etc.
-//   } catch (err) {
-//     setError(err.message);
-//   }
-// };

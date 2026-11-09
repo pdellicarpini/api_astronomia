@@ -88,7 +88,7 @@ class PostController {
 
     async toggleLike(req, res) {
         try {
-            const { id } = req.params;
+            const id = req.params.id;
             const userId = req.user.id;
 
             if (!mongoose.isValidObjectId(id)) {
@@ -109,6 +109,124 @@ class PostController {
             );
 
             return res.status(200).json({ msg: 'Me gusta actualizado.', data: { likes: updated.likes } });
+        } catch (error) {
+            console.error(error);
+            return res.status(500).json({ msg: 'Ocurrió un error con el servidor, lamentamos las molestias ocasionadas.', data: {} });
+        }
+    }
+
+    async postComment(req, res) {
+        try {
+            const id = req.params.id;
+            const { body } = req.body;
+
+            if (!mongoose.isValidObjectId(id)) {
+                return res.status(400).json({ msg: 'El ID proporcionado no es válido.', data: {} });
+            }
+
+            if (!body || !body.trim()) {
+                return res.status(400).json({ msg: 'El comentario no puede estar vacío.', data: {} });
+            }
+
+            const post = await PostModel.findById(id);
+            if (!post) {
+                return res.status(404).json({ msg: 'Post no encontrado.', data: {} });
+            }
+
+            post.comments.push({ author: req.user.id, body });
+            await post.save();
+            await post.populate('comments.author', 'name profileImg level');
+
+            return res.status(201).json({ msg: 'Comentario agregado.', data: { comments: post.comments } });
+        } catch (error) {
+            if (error.name === 'ValidationError') {
+                return res.status(400).json({
+                    msg: 'Los datos ingresados no son válidos.',
+                    data: { errors: Object.values(error.errors).map((e) => e.message) }
+                });
+            }
+
+            console.error(error);
+            return res.status(500).json({ msg: 'No se pudo guardar el comentario.', data: {} });
+        }
+    }
+
+    async reportPost(req, res) {
+        try {
+            const id = req.params.id;
+            const userId = req.user.id;
+
+            if (!mongoose.isValidObjectId(id)) {
+                return res.status(400).json({ msg: 'El ID proporcionado no es válido.', data: {} });
+            }
+
+            const post = await PostModel.findById(id);
+            if (!post) {
+                return res.status(404).json({ msg: 'Post no encontrado.', data: {} });
+            }
+
+            if (post.author.equals(userId)) {
+                return res.status(400).json({ msg: 'No podés reportar tu propia publicación.', data: {} });
+            }
+
+            if (post.reports.some(r => r.equals(userId))) {
+                return res.status(409).json({ msg: 'Ya reportaste esta publicación.', data: {} });
+            }
+
+            post.reports.push(userId);
+            await post.save();
+
+            return res.status(200).json({ msg: 'Publicación reportada.', data: {} });
+        } catch (error) {
+            console.error(error);
+            return res.status(500).json({ msg: 'Ocurrió un error con el servidor, lamentamos las molestias ocasionadas.', data: {} });
+        }
+    }
+
+    async deletePost(req, res) {
+        try {
+            const id = req.params.id;
+
+            if (!mongoose.isValidObjectId(id)) {
+                return res.status(400).json({ msg: 'El ID proporcionado no es válido.', data: {} });
+            }
+
+            const post = await PostModel.findById(id);
+            if (!post) {
+                return res.status(404).json({ msg: 'Post no encontrado.', data: {} });
+            }
+
+            const isOwner = post.author.equals(req.user.id);
+            if (!isOwner && req.user.role !== 'admin') {
+                return res.status(403).json({ msg: 'No tenés permiso para borrar esta publicación.', data: {} });
+            }
+
+            await post.deleteOne();
+
+            return res.status(200).json({ msg: 'Publicación eliminada.', data: {} });
+        } catch (error) {
+            console.error(error);
+            return res.status(500).json({ msg: 'Ocurrió un error con el servidor, lamentamos las molestias ocasionadas.', data: {} });
+        }
+    }
+
+    async getMyComments(req, res) {
+        try {
+            const userId = req.user.id;
+            const posts = await PostModel.find({ 'comments.author': userId }).select('title comments');
+
+            const comments = posts.flatMap(post =>
+                post.comments
+                    .filter(comment => c.author.equals(userId))
+                    .map(comment => ({
+                        _id: comment._id,
+                        body: comment.body,
+                        createdAt: comment.createdAt,
+                        post: { _id: post._id, title: post.title }
+                    }))
+            );
+
+            return res.status(200).json({ msg: 'Comentarios obtenidos.', data: { comments } });
         } catch (error) {
             console.error(error);
             return res.status(500).json({ msg: 'Ocurrió un error con el servidor, lamentamos las molestias ocasionadas.', data: {} });

@@ -1,7 +1,17 @@
 import './Navbar.css';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../context/AuthContext';
 
 function Navbar() {
+    const { logout } = useAuth();
+    const navigate = useNavigate();
+
+    function handleLogout() {
+        logout();
+        navigate('/iniciar-sesion', { replace: true });
+    }
+
     return (
         <header>
             <nav className="nav-bar">
@@ -37,6 +47,7 @@ function Navbar() {
                         </Link>
                     </li>
                 </ul>
+            {/* <button onClick={handleLogout}>Cerrar sesión</button> */}
             </nav>
         </header>
     );

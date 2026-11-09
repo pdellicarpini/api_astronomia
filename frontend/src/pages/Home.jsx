@@ -8,6 +8,7 @@ import { lessons } from '../mocks/lessons.js';
 import { currentUser } from '../mocks/users.js';
 import { levels } from '../mocks/levels.js';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext.jsx';
 
 function Home() {
     const navigate = useNavigate();
@@ -29,7 +30,8 @@ function Home() {
 
     const currentLevel = levels.find(level => level.name === currentUser.level);
     const completedCount = lessons.filter(lesson => lesson.status === 'completed').length;
-
+    const auth = useAuth()
+    console.log(auth);
     return (
         <>
             <main className='main-container container-animation'>
