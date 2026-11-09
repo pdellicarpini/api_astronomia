@@ -30,7 +30,7 @@ const postSchema = new Schema({
     },
     category: {
         type: String,
-        enum: ['Preguntas', 'Observaciones', 'Astrofotografía', 'Otro'],
+        enum: ['Preguntas', 'Observaciones', 'Astrofotografía', 'Charlas'],
         required: true,
     },
     body: {

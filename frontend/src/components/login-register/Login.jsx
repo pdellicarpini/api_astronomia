@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import { Link } from 'react-router-dom';
+import Navbar from '../common/Navbar';
 
 function Login() {
     const { login } = useAuth();
@@ -87,6 +88,8 @@ function Login() {
             </button>
 
             <p className='register-link'>¿No tenés cuenta? <Link to='/registrarse'>Registrate</Link></p>
+
+            <Navbar/>
         </form>
     )
 }

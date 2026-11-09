@@ -5,7 +5,7 @@ import authMiddleware from '../middlewares/authMiddleware.js';
 const post = new PostController();
 const router = express.Router();
 
-router.get('/', authMiddleware, post.getPosts);
+router.get('/', post.getPosts);
 router.get('/my-comments', authMiddleware, post.getMyComments);
 router.get('/:id', authMiddleware, post.getPostById);
 router.post('/', authMiddleware, post.postPost);

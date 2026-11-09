@@ -2,18 +2,16 @@ import './Forum.css';
 import Navbar from '../components/common/Navbar';
 import ForumFilter from '../components/forum/ForumFilter.jsx';
 import ForumPost from '../components/forum/ForumPost.jsx';
+import { useEffect, useState } from 'react';
 import { currentUser } from '../mocks/users.js'
 import { posts as initialPosts } from '../mocks/posts.js';
-import { useEffect, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { timeAgo } from '../utils/timeAgo.js';
+import api from '../services/api.js';
+import { useAuth } from '../context/AuthContext.jsx';
+import LoginPrompt from '../components/common/LoginPrompt.jsx';
 
-function Forum() {
-    const [posts, setPosts] = useState(() => {
-        const saved = localStorage.getItem('posts');
-        return saved ? JSON.parse(saved) : initialPosts;
-    });
-
-    const [category, setCategory] = useState('Todo');
-    const categories = [
+const categories = [
         'Todo',
         'Preguntas',
         'Observaciones', 
@@ -21,19 +19,48 @@ function Forum() {
         'Charlas'
     ]
 
-    useEffect(() => {
-        localStorage.setItem('posts', JSON.stringify(posts));
-    }, [posts]);
+function Forum() {
+    const { user } = useAuth();
+    const navigate = useNavigate();
+    const location = useLocation();
 
-    const toggleLike = (postId) => {
-        setPosts(posts.map(post => 
-            post._id !== postId ? post : {
-                ...post,
-                likes: post.likes.includes(currentUser._id) 
-                ? post.likes.filter(id => id !== currentUser._id)
-                : [...post.likes, currentUser._id]
+    const [posts, setPosts] = useState([]);
+    const [category, setCategory] = useState('Todo');
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState('');
+    const [promptMessage, setPromptMessage] = useState('');    
+
+    useEffect(() => {
+        async function loadPosts() {
+            try {
+                const { data } = await api.get('/posts');
+                setPosts(data.data.posts);
+            } catch (err) {
+                setError('No se pudieron cargar las publicaciones.');
+            } finally {
+                setLoading(false);
             }
-        ));
+        }
+        
+        loadPosts();
+    });
+
+    function requireLogin(message){
+        setPromptMessage(message);
+        // navigate('/iniciar-sesion', { state: { from: location.pathname } });
+    }
+
+    async function toggleLike(postId) {
+        if (!user) return requireLogin('Iniciá sesión para dar me gusta.');
+
+        try {
+            const { data } = await api.post(`/posts/${postId}/like`);
+            setPosts(prev => prev.map(post => 
+                post._id === postId ? { ...post, likes: data.data.likes } : post
+            ));
+        } catch(err) {
+            setError('No se pudo actualizar el like.');
+        }
     }
 
     const visiblePosts = category === 'Todo' ? posts : posts.filter(post => post.category === category);
@@ -43,9 +70,17 @@ function Forum() {
             <main className="main-container container-animation">
                 <h1 className="title">Foro de la comunidad</h1>
                 <ForumFilter categories={ categories } selected={ category } onSelect={ setCategory } />
+
+                { loading && !error && visiblePosts.length === 0 && (
+                    <p className='text-soft'>Todavía no hay publicaciones en esta categoría.</p>
+                )}
+
                 { visiblePosts.map(post => (
                     <ForumPost key={ post._id } post={ post } onToggleLike={ toggleLike }/>
                 ))}
+                { promptMessage && (
+                    <LoginPrompt message={ promptMessage } onClose={ () => setPromptMessage('') }/>
+                )}
             </main>
             <Navbar />
         </>

@@ -104,7 +104,6 @@ input:focus {
     background: transparent;
     display: grid;
     place-content: center;
-    cursor: pointer;
 }
 
 .checkbox input::after {
@@ -164,4 +163,24 @@ form .main-button {
     color: var(--asteria-orange);
     font-weight: 600;
     text-decoration: none;
+}
+
+.prompt-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(13, 7, 56, 0.85);
+}
+
+.prompt {
+    width: 100%;
+    max-width: 360px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
 }

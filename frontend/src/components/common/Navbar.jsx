@@ -47,7 +47,7 @@ function Navbar() {
                         </Link>
                     </li>
                 </ul>
-            {/* <button onClick={handleLogout}>Cerrar sesión</button> */}
+            <button onClick={handleLogout}>Cerrar sesión</button> 
             </nav>
         </header>
     );
