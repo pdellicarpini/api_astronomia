@@ -2,8 +2,6 @@ import './Login.css';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
-import { Link } from 'react-router-dom';
-import Navbar from '../common/Navbar';
 
 function Login() {
     const { login } = useAuth();
@@ -86,10 +84,6 @@ function Login() {
             <button className="main-button" type="submit" disabled={loading}>
                 {loading ? 'Ingresando...' : 'Continuar con Google'}
             </button>
-
-            <p className='register-link'>¿No tenés cuenta? <Link to='/registrarse'>Registrate</Link></p>
-
-            <Navbar/>
         </form>
     )
 }

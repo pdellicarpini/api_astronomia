@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Capa_2" data-name="Capa 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 842.89 596.28">
+  <defs>
+    <clipPath id="clippath">
+      <rect width="842.89" height="596.28" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="Capa_1-2" data-name="Capa 1">
+    <circle cx="487.13" cy="45.56" r="8.61" fill="#2e2186" stroke="#2e2186" stroke-miterlimit="10"/>
+    <circle cx="416.04" cy="34.56" r="4.78" fill="#2e2186" opacity=".57" stroke="#2e2186" stroke-miterlimit="10"/>
+    <circle cx="333.4" cy="569.54" r="6.89" fill="#2e2186" opacity=".57" stroke="#2e2186" stroke-miterlimit="10"/>
+    <circle cx="25.51" cy="569.54" r="4.13" fill="#2e2186" opacity=".57" stroke="#2e2186" stroke-miterlimit="10"/>
+    <circle cx="25.51" cy="29.33" r="4.13" fill="#2e2186" opacity=".57" stroke="#2e2186" stroke-miterlimit="10"/>
+    <circle cx="333.4" cy="161.37" r="4.13" fill="#2e2186" opacity=".57" stroke="#2e2186" stroke-miterlimit="10"/>
+    <circle cx="821.52" cy="387.22" r="4.13" fill="#2e2186" opacity=".57" stroke="#2e2186" stroke-miterlimit="10"/>
+    <circle cx="404.28" cy="110.21" r="7.97" fill="#2e2186" opacity=".57" stroke="#2e2186" stroke-miterlimit="10"/>
+    <circle cx="648.61" cy="524.69" r="4.78" fill="#2e2186" opacity=".57" stroke="#2e2186" stroke-miterlimit="10"/>
+    <circle cx="825.65" cy="507.37" r="7.97" fill="#2e2186" opacity=".57" stroke="#2e2186" stroke-miterlimit="10"/>
+    <circle cx="235.37" cy="45.56" r="4.13" fill="#2e2186" opacity=".57" stroke="#2e2186" stroke-miterlimit="10"/>
+    <circle cx="719.1" cy="461.48" r="7.97" fill="#2e2186" opacity=".57" stroke="#2e2186" stroke-miterlimit="10"/>
+    <circle cx="217.5" cy="526.32" r="4.13" fill="#2e2186" opacity=".57" stroke="#2e2186" stroke-miterlimit="10"/>
+    <circle cx="36.01" cy="141.43" r="4.13" fill="#2e2186" opacity=".57" stroke="#2e2186" stroke-miterlimit="10"/>
+    <circle cx="776.66" cy="550.42" r="4.13" fill="#2e2186" opacity=".57" stroke="#2e2186" stroke-miterlimit="10"/>
+    <circle cx="408.41" cy="259.58" r="4.13" fill="#2e2186" opacity=".57" stroke="#2e2186" stroke-miterlimit="10"/>
+    <circle cx="183.36" cy="583.33" r="7.97" fill="#2e2186" opacity=".57" stroke="#2e2186" stroke-miterlimit="10"/>
+    <circle cx="491.06" cy="578.55" r="4.78" fill="#2e2186" opacity=".57" stroke="#2e2186" stroke-miterlimit="10"/>
+    <circle cx="550.14" cy="424.91" r="4.13" fill="#2e2186" opacity=".57" stroke="#2e2186" stroke-miterlimit="10"/>
+    <circle cx="526.14" cy="515.34" r="7.97" fill="#2e2186" opacity=".57" stroke="#2e2186" stroke-miterlimit="10"/>
+    <g clip-path="url(#clippath)">
+      <ellipse cx="681.21" cy="161.89" rx="98.93" ry="98.75" fill="none" stroke="#2e2186" stroke-dasharray="0 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="4.2"/>
+      <ellipse cx="681.21" cy="161.89" rx="127.69" ry="127.46" fill="none" stroke="#2e2186" stroke-dasharray="0 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="4.2"/>
+      <ellipse cx="681.21" cy="164.27" rx="163.22" ry="162.93" fill="none" stroke="#2e2186" stroke-dasharray="0 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="4.2"/>
+      <ellipse cx="681.21" cy="160.12" rx="198.22" ry="197.87" fill="none" stroke="#2e2186" stroke-dasharray="0 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="4.2"/>
+      <circle cx="515.01" cy="158.72" r="14.35" fill="#2e2186" stroke="#2e2186" stroke-miterlimit="10"/>
+      <circle cx="794.49" cy="41.81" r="14.35" fill="#2e2186" stroke="#2e2186" stroke-miterlimit="10"/>
+      <circle cx="653.39" cy="68.52" r="14.35" fill="#2e2186" stroke="#2e2186" stroke-miterlimit="10"/>
+      <circle cx="803.1" cy="204.74" r="8.61" fill="#2e2186" stroke="#2e2186" stroke-miterlimit="10"/>
+      <ellipse cx="681.21" cy="163.59" rx="228.17" ry="227.76" fill="none" stroke="#2e2186" stroke-dasharray="0 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="4.2"/>
+      <circle cx="830.09" cy="295.64" r="14.35" fill="#2e2186" stroke="#2e2186" stroke-miterlimit="10"/>
+      <circle cx="681.21" cy="168.73" r="23.2" fill="#f08228"/>
+    </g>
+  </g>
+</svg>

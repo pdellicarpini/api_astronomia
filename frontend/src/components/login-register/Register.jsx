@@ -28,38 +28,38 @@ function Register() {
 
         if (!emailRegex.test(email.trim())) {
             return setError('El email no tiene un formato válido.');
-        } 
+        }
 
         if (password.length < 8 || password.length > 64) {
             return setError('La contraseña debe tener entre 8 y 64 caracteres.');
         }
 
-        if (password !== confirmPassword ) {
+        if (password !== confirmPassword) {
             return setError('Las contraseñas no coinciden.');
         }
-        
+
         setLoading(true);
 
         try {
             await register({ name: name.trim(), email: email.trim(), password })
-            navigate('/login', { replace: true, state: { registered: true }});
-        } catch(err) {
-            setError(err.message);
+            navigate('/iniciar-sesion', { replace: true, state: { registered: true } });
+        } catch (err) {
+            setError(err.response?.data?.msg || 'No se pudo registrar el usuario. Intente nuevamente.');
         } finally {
             setLoading(false);
         }
     };
 
     return (
-        <form onSubmit={ handleSubmit }>
+        <form onSubmit={handleSubmit}>
             <div className="field">
                 <label htmlFor="name">Nombre</label>
                 <input
                     type="text"
                     id="name"
                     name="name"
-                    value={ formData.name }
-                    onChange={ handleChange }
+                    value={formData.name}
+                    onChange={handleChange}
                     autoComplete="name"
                     placeholder="Tu nombre"
                     required
@@ -72,8 +72,8 @@ function Register() {
                     type="email"
                     id="email"
                     name="email"
-                    value={ formData.email }
-                    onChange={ handleChange }
+                    value={formData.email}
+                    onChange={handleChange}
                     autoComplete="email"
                     placeholder="nombre@ejemplo.com"
                     required
@@ -89,12 +89,12 @@ function Register() {
                     type="password"
                     id="password"
                     name="password"
-                    value={ formData.password }
-                    onChange={ handleChange }
+                    value={formData.password}
+                    onChange={handleChange}
                     autoComplete="new-password"
                     placeholder="Creá una contraseña"
-                    minLength={ 8 }
-                    maxLength={ 72 }
+                    minLength={8}
+                    maxLength={72}
                     required
                 />
             </div>
@@ -105,18 +105,18 @@ function Register() {
                     type="password"
                     id="confirmPassword"
                     name="confirmPassword"
-                    value={ formData.confirmPassword }
-                    onChange={ handleChange }
+                    value={formData.confirmPassword}
+                    onChange={handleChange}
                     autoComplete="new-password"
                     placeholder="Repetí tu contraseña"
                     required
                 />
             </div>
 
-            { error && <p role="alert">{ error }</p> }
+            {error && <p role="alert">{error}</p>}
 
-            <button className="submit-button" type="submit" disabled={ loading }>
-                { loading ? 'Creando cuenta...' : 'Crear cuenta' }
+            <button className="submit-button" type="submit" disabled={loading}>
+                {loading ? 'Creando cuenta...' : 'Crear cuenta'}
             </button>
         </form>
     );

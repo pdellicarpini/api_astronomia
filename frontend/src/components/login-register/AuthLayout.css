@@ -1,0 +1,167 @@
+.auth-container {
+    margin: 0 auto;
+    background-color: var(--deep-blue);
+    gap: 0;
+    justify-content: space-between;
+    min-height: 100vh;
+    min-height: 100dvh;
+    max-width: 480px;
+    padding: 0;
+}
+
+.auth-hero {
+    min-height: 190px;
+    height: clamp(190px, 28dvh, 300px);
+    padding: 20px 20px 48px;
+    display: flex;
+    margin: 0;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--deep-blue);
+    background-image: url('../../assets/patterns/trama.svg');
+    background-size: cover;
+    background-position: center;
+    box-sizing: border-box;
+}
+
+.auth-hero--compact {
+    height: clamp(150px, 20dvh, 220px);
+}
+
+.auth-brand {
+    align-self: flex-start;
+    width: 100px;
+} 
+
+/* .auth-hero {
+    position: relative;
+    isolation: isolate;
+    background-color: var(--asteria-blue);
+}
+
+.auth-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: url('../assets/trama.svg') center / cover;
+    opacity: 0.4;
+} */
+
+.auth-sheet {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-top: -28px;
+    padding: 24px 20px;
+    border-radius: 28px 28px 0 0;
+    background: var(--asteria-blue);
+}
+
+.auth-footer {
+    margin-top: auto;
+    padding-top: 20px;
+    text-align: center;
+}
+
+.field {
+    margin-bottom: 30px;
+}
+
+.input {
+    position: relative;
+}
+
+.input i {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: var(--text-muted);
+    pointer-events: none;
+}
+
+.input input {
+    width: 100%;
+    box-sizing: border-box;
+    padding-left: 40px;
+    height: 49px;
+    padding: 0 0 0 40px;
+    border: 1px solid var(--text-muted);
+    border-radius: var(--radius-row);
+    outline: none;
+    background: var(--deep-blue);
+    color: var(--white);
+    font-size: var(--card-font-size);
+    transition: border-color 160ms ease;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+input::placeholder {
+    color: var(--text-muted);
+}
+
+input:focus {
+    border-color: var(--asteria-orange);
+}
+
+form .main-button {
+    width: 100%;
+    margin-top: 7px;
+    font-weight: 600;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 14px 0;
+    color: var(--text-muted);
+    font-size: 14px;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--text-muted);
+}
+
+.register-link {
+    margin-top: 10px;
+    font-size: 14px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.register-link a {
+    color: var(--asteria-orange);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.prompt-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(13, 7, 56, 0.85);
+}
+
+.prompt {
+    width: 100%;
+    max-width: 360px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+}

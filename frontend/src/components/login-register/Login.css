@@ -1,67 +1,3 @@
-.auth-container {
-    margin: 0;
-    background-color: var(--asteria-blue);
-    gap: 0;
-    justify-content: space-between;
-}
-
-.auth-container .card {
-    border: none;
-    background-color: var(--deep-blue);
-    margin-top: auto;
-    padding: 20px;
-}
-
-.auth-header {
-    margin-left: 20px;
-}
-
-.field {
-    margin-bottom: 18px;
-}
-
-.input {
-    position: relative;
-}
-
-.input i {
-    position: absolute;
-    left: 12px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 18px;
-    color: var(--text-muted);
-    pointer-events: none;
-}
-
-.input input {
-    width: 100%;
-    box-sizing: border-box;
-    padding-left: 40px;
-    height: 49px;
-    padding: 0 0 0 40px;
-    border: 1px solid var(--light-blue);
-    border-radius: var(--radius-row);
-    outline: none;
-    background: var(--asteria-blue);
-    color: var(--white);
-    font-size: var(--card-font-size);
-    transition: border-color 160ms ease;
-}
-
-label {
-    display: block;
-    margin-bottom: 5px;
-}
-
-input::placeholder {
-    color: var(--text-muted);
-}
-
-input:focus {
-    border-color: var(--asteria-orange);
-}
-
 .password-heading {
     display: flex;
     align-items: center;
@@ -91,6 +27,7 @@ input:focus {
     cursor: pointer;
     color: var(--text-soft);
     font-size: 14px;
+    margin-bottom: 15px;
 }
 
 .checkbox input {
@@ -127,60 +64,4 @@ input:focus {
 .checkbox input:focus-visible {
     outline: 2px solid var(--info);
     outline-offset: 2px;
-}
-
-form .main-button {
-    width: 100%;
-    margin-top: 7px;
-    border: 0;
-    font-weight: 600;
-}
-
-.divider {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin: 14px 0;
-    color: var(--text-muted);
-    font-size: 14px;
-}
-
-.divider::before,
-.divider::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: var(--light-blue);
-}
-
-.register-link {
-    margin-top: 10px;
-    font-size: 14px;
-    text-align: center;
-}
-
-.register-link a {
-    color: var(--asteria-orange);
-    font-weight: 600;
-    text-decoration: none;
-}
-
-.prompt-overlay {
-    position: fixed;
-    inset: 0;
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    background: rgba(13, 7, 56, 0.85);
-}
-
-.prompt {
-    width: 100%;
-    max-width: 360px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    text-align: center;
 }

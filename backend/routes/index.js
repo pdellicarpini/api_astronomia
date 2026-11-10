@@ -12,7 +12,7 @@ const routerAPI = (app) => {
     app.use('/api/lessons', lessonRouter);
     app.use('/api/levels', levelRouter);
     app.use('/api/auth', authRouter);
-    app.use('/api/posts', authMiddleware, postRouter)
+    app.use('/api/posts', postRouter)
 }
 
 export default routerAPI;

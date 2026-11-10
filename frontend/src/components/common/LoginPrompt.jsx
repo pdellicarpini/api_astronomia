@@ -17,7 +17,7 @@ function LoginPrompt({ message, onClose }) {
                 <p className='text-soft'>{ message }</p>
                 <Link to='/iniciar-sesion' state={ state } className='submit-button'>Ingresar</Link>
                 <Link to='/registrarse' state={ state }>Crear cuenta</Link>
-                <button type='button' onClick={ onClose }>Ahora no</button>
+                <button className='main-button' onClick={ onClose }>Ahora no</button>
             </div>
         </div>
     );

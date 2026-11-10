@@ -38,8 +38,9 @@ const userSchema = new Schema({
         }
     },
     level: {
-        type: String,
-        default: 'Aprendiz del Cielo'
+        type: Schema.Types.ObjectId,
+        ref: 'Level',
+        required: true
     }
 });
 

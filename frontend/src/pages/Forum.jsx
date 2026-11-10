@@ -1,15 +1,11 @@
 import './Forum.css';
+import api from '../services/api.js';
 import Navbar from '../components/common/Navbar';
 import ForumFilter from '../components/forum/ForumFilter.jsx';
 import ForumPost from '../components/forum/ForumPost.jsx';
-import { useEffect, useState } from 'react';
-import { currentUser } from '../mocks/users.js'
-import { posts as initialPosts } from '../mocks/posts.js';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { timeAgo } from '../utils/timeAgo.js';
-import api from '../services/api.js';
-import { useAuth } from '../context/AuthContext.jsx';
 import LoginPrompt from '../components/common/LoginPrompt.jsx';
+import { useEffect, useState } from 'react';
+import { useAuth } from '../context/AuthContext.jsx';
 
 const categories = [
         'Todo',
@@ -21,9 +17,6 @@ const categories = [
 
 function Forum() {
     const { user } = useAuth();
-    const navigate = useNavigate();
-    const location = useLocation();
-
     const [posts, setPosts] = useState([]);
     const [category, setCategory] = useState('Todo');
     const [loading, setLoading] = useState(true);
@@ -47,7 +40,6 @@ function Forum() {
 
     function requireLogin(message){
         setPromptMessage(message);
-        // navigate('/iniciar-sesion', { state: { from: location.pathname } });
     }
 
     async function toggleLike(postId) {
