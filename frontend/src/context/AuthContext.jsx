@@ -11,7 +11,7 @@ function getSession(token) {
 
     try {
         const payload = jwtDecode(token);
-        console.log('Contenido del JWT:', payload);
+        // console.log('Contenido del JWT:', payload);
 
         if (!payload.exp || payload.exp * 1000 <= Date.now()) {
             return { token: null, user: null };

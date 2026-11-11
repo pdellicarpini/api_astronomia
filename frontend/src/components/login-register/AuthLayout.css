@@ -10,8 +10,7 @@
 }
 
 .auth-hero {
-    min-height: 190px;
-    height: clamp(190px, 28dvh, 300px);
+    min-height: 300px;
     padding: 20px 20px 48px;
     display: flex;
     margin: 0;
@@ -25,7 +24,7 @@
 }
 
 .auth-hero--compact {
-    height: clamp(150px, 20dvh, 220px);
+    min-height: 250px;
 }
 
 .auth-brand {
@@ -33,28 +32,13 @@
     width: 100px;
 } 
 
-/* .auth-hero {
-    position: relative;
-    isolation: isolate;
-    background-color: var(--asteria-blue);
-}
-
-.auth-hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    background: url('../assets/trama.svg') center / cover;
-    opacity: 0.4;
-} */
-
 .auth-sheet {
     flex: 1;
     display: flex;
     flex-direction: column;
     margin-top: -28px;
     padding: 24px 20px;
-    border-radius: 28px 28px 0 0;
+    border-radius: 28px;
     background: var(--asteria-blue);
 }
 
@@ -153,7 +137,6 @@ form .main-button {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 20px;
     background: rgba(13, 7, 56, 0.85);
 }
 
@@ -164,4 +147,21 @@ form .main-button {
     flex-direction: column;
     gap: 12px;
     text-align: center;
+}
+
+.auth-links a {
+    text-decoration: none;
+    width: 100%;
+}
+
+.auth-links {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.prompt-overlay .not-now {
+    background-color: var(--deep-blue);
+    border: thin solid var(--light-blue);
+    color: var(--text-muted);
 }

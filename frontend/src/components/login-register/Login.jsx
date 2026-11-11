@@ -1,4 +1,4 @@
-import './Login.css';
+import './AuthForm.css';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';

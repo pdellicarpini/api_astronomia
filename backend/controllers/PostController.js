@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 import PostModel from '../models/postModel.js';
+import UserModel from '../models/userModel.js';
 
 class PostController {
     async getPosts(req, res) {
@@ -17,7 +18,7 @@ class PostController {
                     return res.status(404).json({ msg: 'El usuario con el ID proporcionado no existe.', data: {} });
                 }
 
-                filteredQuestions.author = authorId;
+                filteredPosts.author = authorId;
             }
 
             if (category) {
@@ -25,7 +26,14 @@ class PostController {
             }
 
             const posts = await PostModel.find(filteredPosts)
-                .populate('author', 'name profileImg level')
+                .populate({
+                    path: 'author', 
+                    select:'name profileImg level',
+                    populate: {
+                        path: 'level',
+                        select: 'name'
+                    }
+                })
                 .sort({ createdAt: -1 });
 
             return res.status(200).json({ msg: 'Posteos encontrados.', data: { posts } });
@@ -217,7 +225,7 @@ class PostController {
 
             const comments = posts.flatMap(post =>
                 post.comments
-                    .filter(comment => c.author.equals(userId))
+                    .filter(comment => comment.author.equals(userId))
                     .map(comment => ({
                         _id: comment._id,
                         body: comment.body,

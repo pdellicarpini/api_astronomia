@@ -8,12 +8,12 @@ import { useEffect, useState } from 'react';
 import { useAuth } from '../context/AuthContext.jsx';
 
 const categories = [
-        'Todo',
-        'Preguntas',
-        'Observaciones', 
-        'Astrofotografía', 
-        'Charlas'
-    ]
+    'Todo',
+    'Preguntas',
+    'Observaciones',
+    'Astrofotografía',
+    'Charlas'
+]
 
 function Forum() {
     const { user } = useAuth();
@@ -21,7 +21,7 @@ function Forum() {
     const [category, setCategory] = useState('Todo');
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
-    const [promptMessage, setPromptMessage] = useState('');    
+    const [promptMessage, setPromptMessage] = useState('');
 
     useEffect(() => {
         async function loadPosts() {
@@ -34,11 +34,11 @@ function Forum() {
                 setLoading(false);
             }
         }
-        
-        loadPosts();
-    });
 
-    function requireLogin(message){
+        loadPosts();
+    }, []);
+
+    function requireLogin(message) {
         setPromptMessage(message);
     }
 
@@ -47,10 +47,10 @@ function Forum() {
 
         try {
             const { data } = await api.post(`/posts/${postId}/like`);
-            setPosts(prev => prev.map(post => 
+            setPosts(prev => prev.map(post =>
                 post._id === postId ? { ...post, likes: data.data.likes } : post
             ));
-        } catch(err) {
+        } catch (err) {
             setError('No se pudo actualizar el like.');
         }
     }
@@ -61,17 +61,17 @@ function Forum() {
         <>
             <main className="main-container container-animation">
                 <h1 className="title">Foro de la comunidad</h1>
-                <ForumFilter categories={ categories } selected={ category } onSelect={ setCategory } />
+                <ForumFilter categories={categories} selected={category} onSelect={setCategory} />
 
-                { loading && !error && visiblePosts.length === 0 && (
+                {loading && !error && visiblePosts.length === 0 && (
                     <p className='text-soft'>Todavía no hay publicaciones en esta categoría.</p>
                 )}
 
-                { visiblePosts.map(post => (
-                    <ForumPost key={ post._id } post={ post } onToggleLike={ toggleLike }/>
+                {visiblePosts.map(post => (
+                    <ForumPost key={post._id} post={post} onToggleLike={toggleLike} />
                 ))}
-                { promptMessage && (
-                    <LoginPrompt message={ promptMessage } onClose={ () => setPromptMessage('') }/>
+                {promptMessage && (
+                    <LoginPrompt message={promptMessage} onClose={() => setPromptMessage('')} />
                 )}
             </main>
             <Navbar />

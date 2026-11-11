@@ -16,7 +16,6 @@ function Home() {
     const navigate = useNavigate();
     const pathRef = useRef(null);
     const currentId = lessons.find(lesson => lesson.status === 'current')?._id;
-    console.log(user)
 
     useEffect(() => {
         const current = pathRef.current?.querySelector('[aria-current="step"]');
@@ -34,7 +33,7 @@ function Home() {
     const currentLevel = levels.find(level => level.name === currentUser.level);
     const completedCount = lessons.filter(lesson => lesson.status === 'completed').length;
     const auth = useAuth()
-    console.log(auth);
+    // console.log(auth);
     return (
         <>
             <main className='main-container container-animation'>
