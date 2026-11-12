@@ -20,14 +20,14 @@ const states = {
 }
 
 function LessonCard({ lesson, status, previusStatus, isLast, onStart }) {
-    const key = status in states ? status : 'current';
+    const key = status in states ? status : 'locked';
     const state = states[key];
 
     const lockedHint = previusStatus === 'current' ? `Completá la lección ${lesson.order - 1} para desbloquearla` : 'Se desbloquea al completar las lecciones anteriores'
 
     return (
         <li 
-            className={ `step step--${ key }${ isLast ? 'step--last' : '' }` }
+            className={ `step step--${ key } ${ isLast ? 'step--last' : '' }` }
             aria-current={ key === 'current' ? 'step' : undefined }
         >
             <div className={ `step__node icon-circle icon-circle--${ key }` }>

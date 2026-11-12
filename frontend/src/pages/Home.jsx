@@ -1,4 +1,3 @@
-import api from '../services/api.js';
 import LessonCard from '../components/home/LessonCard.jsx';
 import ProfileHeader from '../components/home/ProfileHeader.jsx';
 import LevelsCard from '../components/home/LevelsCard.jsx';
@@ -9,13 +8,20 @@ import { lessons } from '../mocks/lessons.js';
 import { currentUser } from '../mocks/users.js';
 import { levels } from '../mocks/levels.js';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext.jsx';
+import { getHome } from '../services/homeService.js';
 
 function Home() {
-    const { user } = useAuth();
     const navigate = useNavigate();
     const pathRef = useRef(null);
-    const currentId = lessons.find(lesson => lesson.status === 'current')?._id;
+    const [home, setHome] = useState(null);
+    const [error, setError] = useState('');
+
+    useEffect(() => {
+        getHome().then(setHome).catch(err => setError(err.message));
+    }, []);
+
+    const lessons = home?.lessons ?? [];
+    const currentId = lessons.find(lesson => lesson.status.current)?._id;
 
     useEffect(() => {
         const current = pathRef.current?.querySelector('[aria-current="step"]');
@@ -30,29 +36,31 @@ function Home() {
         navigate(`/lecciones/${lessonId}`);
     }
 
-    const currentLevel = levels.find(level => level.name === currentUser.level);
+    if (error) return <main className='main-container'><p className='text'>{ error }</p></main>;
+    if (!home) return <main className='main-container'><p className='text text-muted'>Cargando...</p></main>;
+
+    const { user, levels } = home;
     const completedCount = lessons.filter(lesson => lesson.status === 'completed').length;
-    const auth = useAuth()
-    // console.log(auth);
+
     return (
         <>
             <main className='main-container container-animation'>
                 <header className='user-header'>
                     <ProfileHeader
-                        avatar={currentUser.profileImg}
-                        username={currentUser.name}
-                        level={currentUser.level}
+                        avatar={ user.profileImg }
+                        username={ user.name }
+                        level={ user.level.name }
                     />
                     <StreakBadge
-                        streak={currentUser.streak}
+                        streak={ user.streak.current }
                     />
                 </header>
 
                 <LevelsCard
-                    currentLevel={currentLevel}
-                    levels={levels}
-                    completed={completedCount}
-                    total={lessons.length}
+                    currentLevel={ user.level }
+                    levels={ levels }
+                    completed={ completedCount }
+                    total={ lessons.length }
                 />
 
                 <ol className='path' ref={pathRef} aria-label='Lecciones del nivel'>
