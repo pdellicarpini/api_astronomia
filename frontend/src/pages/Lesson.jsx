@@ -1,62 +1,38 @@
+import LessonSession from '../components/lesson/LessonSession';
+import Loader from '../components/common/Loader';
+import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-
-import QuestionRenderer from '../components/lesson/QuestionRenderer';
-import FeedbackBar from '../components/lesson/FeedbackBar';
-import LessonComplete from '../components/lesson/LessonComplete';
-
-import useLessonSession from '../hooks/useLessonSession';
-
-import { questions } from '../mocks/questions';
-import { lessons } from '../mocks/lessons';
-import { currentUser } from '../mocks/users.js';              
+import { getLessonWithQuestions } from '../services/lessonService';
 
 function Lesson() {
     const { id } = useParams();
-    const lesson = lessons.find(item => item._id === id);
     const navigate = useNavigate();
-    const {
-        currentQuestion, progress, lastResult, mistakes, finished, answer, next
-    } = useLessonSession(questions);
+    const [data, setData] = useState(null);
+    const [error, setError] = useState('');
 
-    if (finished) {
+    useEffect(() => {
+        setData(null);
+        setError('');
+
+        getLessonWithQuestions(id)
+            .then(setData)
+            .catch(err => setError(err.message));
+    }, [id]);
+
+    if (error) {
         return (
-            <main className="lesson-finished">
-                <section className="lesson-complete">
-                    <LessonComplete
-                        user={currentUser.name}
-                        mistakes={mistakes}
-                        onExit={() => navigate('/')}
-                    />
-                </section>
+            <main className='lesson-finished'>
+                <div className='card'>
+                    <p className='text'>{ error }</p>
+                    <button className='main-button' onClick={() => navigate('/')}>Volver al inicio</button>
+                </div>
             </main>
         );
     }
-    
-    return (
-        <main className={ `questions container-animation 
-        ${ lastResult !== null ? 'questions--with-feedback' : '' }` }>
-            <div className='lesson-banner'>
-                <div className='lesson-banner__text'>
-                    <p>Lección {id}</p>
-                    <h2>{ lesson?.title }</h2>
-                </div>
-                <div className='lesson-banner__progress'>
-                    <button className='exit-lesson-button' onClick={() => navigate('/')}><i className="bi bi-x-lg"></i></button>
-                    <progress value={progress} max="1" />
-                </div>
-            </div>
 
-            <div className="lesson-question-area">
-                <QuestionRenderer
-                    key={`${currentQuestion._id}-${mistakes}`}
-                    question={currentQuestion}
-                    onAnswer={answer}
-                />
-            </div>
+    if (!data) return <Loader text='Cargando lección...' />
 
-            <FeedbackBar isCorrect={ lastResult } onNext={ next } explanation={ currentQuestion.explanation }/>
-        </main>
-    );
+    return <LessonSession lesson={ data.lesson } questions={ data.questions } />
 }
 
 export default Lesson;

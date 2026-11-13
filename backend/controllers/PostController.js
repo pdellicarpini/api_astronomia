@@ -2,6 +2,12 @@ import mongoose from 'mongoose';
 import PostModel from '../models/postModel.js';
 import UserModel from '../models/userModel.js';
 
+const authorPopulate = {
+    path: 'author',
+    select: 'name profileImg level',
+    populate: { path: 'level', select: 'name' }
+};
+
 class PostController {
     async getPosts(req, res) {
         try {
@@ -26,14 +32,7 @@ class PostController {
             }
 
             const posts = await PostModel.find(filteredPosts)
-                .populate({
-                    path: 'author', 
-                    select:'name profileImg level',
-                    populate: {
-                        path: 'level',
-                        select: 'name'
-                    }
-                })
+                .populate(authorPopulate)
                 .sort({ createdAt: -1 });
 
             return res.status(200).json({ msg: 'Posteos encontrados.', data: { posts } });
@@ -53,7 +52,7 @@ class PostController {
             }
 
             const post = await PostModel.findById(id)
-                .populate('author', 'name profileImg level')
+                .populate(authorPopulate)
                 .populate('comments.author', 'name profileImg level');
 
             if (post) {
@@ -78,9 +77,9 @@ class PostController {
             // guardar post
             const newPost = new PostModel({ title, category, body, author: req.user.id });
             await newPost.save();
-            await newPost.populate('author', 'name profileImg level');
+            await newPost.populate(authorPopulate);
 
-            return res.status(201).json({ msg: 'Posteo creado exitosamente.', data: { question: newPost } });
+            return res.status(201).json({ msg: 'Posteo creado exitosamente.', data: { post: newPost } });
         } catch (error) {
             if (error.name === 'ValidationError') {
                 return res.status(400).json({

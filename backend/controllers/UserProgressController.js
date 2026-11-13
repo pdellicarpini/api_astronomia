@@ -3,6 +3,7 @@ import UserModel from '../models/userModel.js';
 import LevelModel from '../models/levelModel.js';
 import LessonModel from '../models/lessonModel.js';
 import UserProgressModel from '../models/userProgressModel.js';
+import { nextStreak } from '../utils/streak.js';
 
 class UserProgressController {
     async completeLesson(req, res) {
@@ -41,7 +42,7 @@ class UserProgressController {
                     user: user._id,
                     lesson: { $in: previous.map(item => item._id) }
                 })
-                
+
                 if (completedPrevious !== previous.length) {
                     return res.status(403).json({ msg: 'Tenés que completar las lecciones anteriores.', data: {} });
                 }
@@ -55,10 +56,18 @@ class UserProgressController {
             );
             const firstCompletion = result.upsertedCount === 1;
 
+            if (firstCompletion) {
+                const now = new Date();
+                await UserModel.updateOne({ _id: user._id }, {
+                    'streak.current': nextStreak(user.streak, now),
+                    'streak.lastActivityAt': now
+                });
+            }
+
             let levelUp = false;
 
             if (lesson.level._id.equals(user.level._id)) {
-                const levelLessons = await LessonModel.find({ level: user.level._id }).select('_id').lean();         
+                const levelLessons = await LessonModel.find({ level: user.level._id }).select('_id').lean();
                 const completedCount = await UserProgressModel.countDocuments({
                     user: user._id,
                     lesson: { $in: levelLessons.map(item => item._id) }
@@ -74,7 +83,7 @@ class UserProgressController {
                 }
             }
 
-            return res.status(200).json({ msg: 'Lección completada correctamente.', data: { firstCompletion, levelUp} })
+            return res.status(200).json({ msg: 'Lección completada correctamente.', data: { firstCompletion, levelUp } })
         } catch (error) {
             console.error(error);
             return res.status(500).json({ msg: 'No fue posible registrar el progreso.', data: {} });

@@ -17,14 +17,14 @@ const lessons = [
         totalXp: '10',
     },
     {
-        title: 'Las fases de la Luna',
+        title: 'La Luna y sus fases',
         description: 'Aprendé por qué la Luna cambia de forma y cómo se repite su ciclo.',
         order: '3',
         level: 'Aprendiz del Cielo',
         totalXp: '10',
     },
     {
-        title: 'El Sol, nuestra estrella más cercana',
+        title: 'El Sol: nuestra estrella',
         description: 'Conocé qué es el Sol, qué energía emite y por qué es clave para la vida en la Tierra.',
         order: '4',
         level: 'Aprendiz del Cielo',

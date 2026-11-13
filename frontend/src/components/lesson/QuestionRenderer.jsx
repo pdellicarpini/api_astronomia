@@ -1,5 +1,6 @@
 import MultipleChoice from "../questions/MultipleChoice";
 import Matching from "../questions/Matching";
+import Ordering from "../questions/Ordering";
 
 function QuestionRenderer({ question, onAnswer }) {
     switch(question.type) {
@@ -9,6 +10,8 @@ function QuestionRenderer({ question, onAnswer }) {
             return  <MultipleChoice className='true-false' question={ question } onAnswer={ onAnswer } />
         case 'matching':
             return <Matching question={ question } onAnswer={ onAnswer } />
+        case 'ordering':
+            return <Ordering question={ question } onAnswer={ onAnswer } />
         default:
             return <p>Tipo de pregunta no soportado: { question.type }</p>
     }

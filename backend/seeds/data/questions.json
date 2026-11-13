@@ -1,0 +1,327 @@
+[
+    {
+        "question": "¿Qué distingue a la astronomía de la astrología?",
+        "type": "multiple-choice",
+        "options": [
+            "La astronomía hace afirmaciones que pueden comprobarse con observaciones; la astrología no.",
+            "La astrología estudia planetas y la astronomía solo estrellas.",
+            "La astronomía usa telescopios y la astrología solo observa a simple vista.",
+            "Son la misma disciplina con distinto nombre."
+        ],
+        "matchOptions": [],
+        "correctAnswer": "0",
+        "explanation": "“Astronomía” viene del griego astron (astro) y nomos (ley, norma): las normas que rigen los astros. La astrología (astro + logos, “discurso”) no es una ciencia, porque sus predicciones no resisten pruebas controladas.",
+        "difficulty": "easy",
+        "lesson": "¿Qué es la astronomía?"
+    },
+    {
+        "question": "“Una teoría científica es solo una idea que todavía no se comprobó.”",
+        "type": "true-false",
+        "options": ["Verdadero", "Falso"],
+        "matchOptions": [],
+        "correctAnswer": "1",
+        "explanation": "En ciencia, una teoría es una explicación amplia sostenida por mucha evidencia, como la gravitación o la evolución estelar. “Hipótesis” es la palabra para la idea sin comprobar.",
+        "difficulty": "intermediate",
+        "lesson": "¿Qué es la astronomía?"
+    },
+    {
+        "question": "Un astrónomo quiere saber de qué está hecha una estrella a años luz de distancia. ¿Qué analiza?",
+        "type": "multiple-choice",
+        "options": [
+            "Su luz",
+            "Su sonido",
+            "Una muestra del polvo que llega a la Tierra",
+            "Su temperatura, midiéndola con un termómetro especial"
+        ],
+        "correctAnswer": 0,
+        "explanation": "La luz de una estrella contiene «huellas digitales» de los elementos que la componen. Esa técnica se llama espectroscopía.",
+        "difficulty": "intermediate",
+        "lesson": "¿Qué es la astronomía?"
+    },
+    {
+        "question": "¿Cuál de estos NO es un objeto astronómico?",
+        "type": "multiple-choice",
+        "options": [
+            "Nebulosa",
+            "Púlsar",
+            "Aurora boreal",
+            "Cometa"
+        ],
+        "correctAnswer": 2,
+        "explanation": "Las auroras ocurren en la atmósfera de la Tierra. Las provocan partículas del Sol, pero el fenómeno es terrestre.",
+        "difficulty": "easy",
+        "lesson": "¿Qué es la astronomía?"
+    },
+    {
+        "question": "Ordená de menor a mayor tamaño:",
+        "type": "ordering",
+        "options": [
+            "Luna",
+            "Júpiter",
+            "Sol",
+            "Vía Láctea"
+        ],
+        "explanation": "El Sol tiene un diámetro de unas 10 veces el de Júpiter. La Vía Láctea mide unos 100.000 años luz de lado a lado.",
+        "difficulty": "easy",
+        "lesson": "¿Qué es la astronomía?"
+    },
+    {
+        "question": "¿Qué es una estrella?",
+        "type": "multiple-choice",
+        "options": [
+            "Un cuerpo que refleja la luz del Sol",
+            "Una roca incandescente muy lejana",
+            "Un planeta muy caliente",
+            "Una esfera de gas que produce su propia luz"
+        ],
+        "correctAnswer": 3,
+        "explanation": "Una estrella produce luz por fusión nuclear. En su núcleo, la presión y la temperatura fusionan átomos livianos en otros más pesados y liberan energía.",
+        "difficulty": "intermediate",
+        "lesson": "¿Qué es la astronomía?"
+    },
+    {
+        "question": "Todo lo que brilla en el cielo nocturno es una estrella.",
+        "type": "true-false",
+        "options": [
+            "Verdadero",
+            "Falso"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Los planetas, la Luna, los satélites artificiales e incluso galaxias como Andrómeda se ven a simple vista y no son estrellas.",
+        "difficulty": "easy",
+        "lesson": "¿Qué es la astronomía?"
+    },
+    {
+        "question": "Un químico puede mezclar sustancias en el laboratorio para ver qué pasa. Pero nadie puede fabricar una estrella para estudiarla, y una estrella vive miles de millones de años. ¿Cómo hacen los astrónomos para entender cómo nacen, viven y mueren?",
+        "type": "multiple-choice",
+        "options": [
+            "Esperan miles de millones de años observando una sola estrella",
+            "Observan muchísimas estrellas que están en etapas distintas de su vida y las comparan",
+            "Fabrican estrellas en miniatura en laboratorios y las dejan evolucionar",
+            "No pueden: es solo una teoría sin comprobar"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Es como un bosque: no ves crecer un árbol, pero viendo plantines, árboles adultos y árboles viejos entendés su ciclo. La astronomía es una ciencia observacional, y las simulaciones por computadora complementan lo que se observa.",
+        "difficulty": "hard",
+        "lesson": "¿Qué es la astronomía?"
+    },
+        {
+        "question": "¿Por qué el cielo se ve azul de día?",
+        "type": "multiple-choice",
+        "options": [
+            "Refleja el color de los océanos",
+            "El Sol emite principalmente luz azul",
+            "La atmósfera dispersa mucho más la luz azul que la roja",
+            "La capa de ozono es de color azul"
+        ],
+        "correctAnswer": 2,
+        "explanation": "Es la dispersión de Rayleigh. Al atardecer la luz recorre más atmósfera, se pierde el azul y el cielo se tiñe de rojo.",
+        "difficulty": "intermediate",
+        "lesson": "El cielo de día y de noche"
+    },
+    {
+        "question": "¿Por qué no vemos estrellas durante el día?",
+        "type": "multiple-choice",
+        "options": [
+            "Se apagan y se vuelven a encender de noche",
+            "Se mueven al otro lado de la Tierra",
+            "El Sol las tapa físicamente",
+            "La luz dispersada por la atmósfera es mucho más intensa que la de las estrellas"
+        ],
+        "correctAnswer": 3,
+        "explanation": "Las estrellas siguen ahí. Desde el espacio, o con un telescopio especial, se ven de día.",
+        "difficulty": "intermediate",
+        "lesson": "El cielo de día y de noche"
+    },
+    {
+        "question": "Cuando el Sol se pone, el cielo no se oscurece de golpe: sigue iluminado un rato. ¿Por qué?",
+        "type": "multiple-choice",
+        "options": [
+            "Porque la Luna refleja luz hacia la Tierra",
+            "Porque las estrellas emiten luz suficiente",
+            "Porque el suelo retiene calor y lo libera como luz",
+            "Porque las capas altas de la atmósfera todavía reciben luz solar y la dispersan hacia abajo"
+        ],
+        "correctAnswer": 3,
+        "explanation": "Ese lapso se llama crepúsculo. Aunque el Sol ya esté bajo tu horizonte, sus rayos siguen iluminando el aire en altura. Se divide en tres etapas según cuántos grados está el Sol bajo el horizonte. En el amanecer ocurre lo mismo al revés.",
+        "difficulty": "intermediate",
+        "lesson": "El cielo de día y de noche"
+    },
+    {
+        "question": "¿Qué es el horizonte?",
+        "type": "multiple-choice",
+        "options": [
+            "La línea real donde termina el cielo y empieza la Tierra",
+            "El límite de lo que vemos, determinado por la curvatura de la Tierra y el relieve",
+            "La capa más alta de la atmósfera",
+            "El punto exacto donde sale el Sol"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Por eso un barco que se aleja desaparece «casco primero». Fue una de las primeras evidencias de que la Tierra es curva.",
+        "difficulty": "easy",
+        "lesson": "El cielo de día y de noche"
+    },
+    {
+        "question": "La Luna sólo puede verse de noche.",
+        "type": "true-false",
+        "options": [
+            "Verdadero",
+            "Falso"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Con frecuencia se ve de día, sobre todo en las fases cercanas al cuarto. Es una buena forma de empezar a mirar el cielo con otros ojos.",
+        "difficulty": "easy",
+        "lesson": "El cielo de día y de noche"
+    },
+    {
+        "question": "En una noche sin Luna, lejos de la ciudad, ¿qué podés ver a simple vista que desde una ciudad iluminada no?",
+        "type": "multiple-choice",
+        "options": [
+            "Más planetas",
+            "La Vía Láctea",
+            "Galaxias individuales con forma de espiral",
+            "La superficie de la Luna con detalle"
+        ],
+        "correctAnswer": 1,
+        "explanation": "La Vía Láctea es nuestra galaxia vista desde adentro. La contaminación lumínica la borra por completo en las ciudades.",
+        "difficulty": "easy",
+        "lesson": "El cielo de día y de noche"
+    },
+    {
+        "question": "Ordená las etapas del crepúsculo vespertino, desde que el Sol se pone hasta la noche cerrada: crepúsculo astronómico, civil, náutico.",
+        "type": "ordering",
+        "options": [
+            "Civil",
+            "Náutico",
+            "Astronómico"
+        ],
+        "explanation": "Se definen por cuántos grados está el Sol bajo el horizonte: 0°–6°, 6°–12° y 12°–18°. Recién con el astronómico el cielo está lo bastante oscuro para observar objetos muy débiles.",
+        "difficulty": "hard",
+        "lesson": "El cielo de día y de noche"
+    },
+    {
+        "question": "Una «estrella» muy brillante se ve fija, sin titilar. ¿Qué es más probable que sea?",
+        "type": "multiple-choice",
+        "options": [
+            "Un planeta",
+            "Un satélite artificial",
+            "Una estrella gigante cercana",
+            "Una nebulosa"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Las estrellas son puntos tan chicos que la turbulencia atmosférica los hace titilar. Los planetas son discos diminutos y su luz se ve más estable.",
+        "difficulty": "intermediate",
+        "lesson": "El cielo de día y de noche"
+    },
+    {
+        "question": "¿Qué define a un cuerpo como «luna»?",
+        "type": "multiple-choice",
+        "options": [
+            "Un cuerpo natural que orbita otro cuerpo celeste",
+            "Un cuerpo rocoso que no tiene luz propia",
+            "Un cuerpo pequeño que orbita una estrella",
+            "Un cuerpo natural que tiene atmósfera"
+        ],
+        "correctAnswer": 0,
+        "explanation": "También se las llama satélites naturales. Mercurio y Venus no tienen ninguna, la Tierra una, Marte dos pequeñas, y los planetas gigantes decenas o cientos. Algunas son enormes: Ganímedes (Júpiter) y Titán (Saturno) son más grandes que Mercurio.",
+        "difficulty": "easy",
+        "lesson": "La Luna y sus fases"
+    },
+    {
+        "question": "¿Por qué vemos distintas fases de la Luna?",
+        "type": "multiple-choice",
+        "options": [
+            "Porque la sombra de la Tierra la cubre en distintas cantidades",
+            "Porque la Luna cambia de forma",
+            "Porque vemos distintas porciones de su mitad iluminada",
+            "Porque las nubes la tapan en distintos momentos"
+        ],
+        "correctAnswer": 2,
+        "explanation": "La Luna siempre tiene una mitad iluminada por el Sol. Lo que cambia es el ángulo desde el que la miramos. No es la sombra de la Tierra: esa produce los eclipses lunares, que son mucho menos frecuentes.",
+        "difficulty": "intermediate",
+        "lesson": "La Luna y sus fases"
+    },
+    {
+        "question": "¿En qué fase está la Luna cuando se encuentra entre la Tierra y el Sol?",
+        "type": "multiple-choice",
+        "options": [
+            "Luna llena",
+            "Luna nueva",
+            "Cuarto creciente",
+            "Cuarto menguante"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Desde la Tierra vemos su cara no iluminada. Además, queda cerca del Sol en el cielo y se pierde en su resplandor.",
+        "difficulty": "intermediate",
+        "lesson": "La Luna y sus fases"
+    },
+    {
+        "question": "¿Cuánto tarda la Luna en completar un ciclo de fases?",
+        "type": "multiple-choice",
+        "options": [
+            "Unos 15 días",
+            "Unos 25,3 días",
+            "Unos 29,5 días",
+            "Unos 365 días"
+        ],
+        "correctAnswer": 2,
+        "explanation": "Es el mes sinódico. Es un poco más largo que lo que tarda en orbitar la Tierra (27,3 días) porque la Tierra también avanzó alrededor del Sol.",
+        "difficulty": "easy",
+        "lesson": "La Luna y sus fases"
+    },
+    {
+        "question": "¿Cuál es la hipótesis más aceptada sobre el origen de la Luna?",
+        "type": "multiple-choice",
+        "options": [
+            "Se formó junto con la Tierra",
+            "Fue capturada por la gravedad terrestre",
+            "Nació de los restos de un gran impacto",
+            "Se desprendió de la Tierra al girar"
+        ],
+        "correctAnswer": 2,
+        "explanation": "Es la hipótesis del impacto gigante: hace unos 4.500 millones de años chocó un cuerpo llamado Theia. Las rocas lunares que trajo el programa Apolo son muy parecidas al manto terrestre, y eso la respalda. Los detalles todavía se discuten.",
+        "difficulty": "intermediate",
+        "lesson": "La Luna y sus fases"
+    },
+    {
+        "question": "Siempre vemos la misma cara de la Luna. ¿Por qué?",
+        "type": "multiple-choice",
+        "options": [
+            "Porque no gira sobre su eje",
+            "Porque rota y orbita en el mismo tiempo",
+            "Porque su cara oculta nunca recibe luz",
+            "Porque la gravedad terrestre impide su rotación"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Es la rotación sincrónica. La cara oculta recibe luz solar igual que la visible. No existe una «cara oscura de la Luna».",
+        "difficulty": "intermediate",
+        "lesson": "La Luna y sus fases"
+    },
+    {
+        "question": "Ordená las fases desde la Luna nueva, en orden creciente: Luna llena, cuarto creciente, creciente, gibosa creciente.",
+        "type": "ordering",
+        "options": [
+            "Creciente",
+            "Cuarto creciente",
+            "Gibosa creciente",
+            "Luna llena"
+        ],
+        "explanation": "«Gibosa» significa abultada: más de la mitad del disco lunar visible está iluminado.",
+        "difficulty": "easy",
+        "lesson": "La Luna y sus fases"
+    },
+    {
+        "question": "Las mareas son la subida y bajada periódica del nivel del mar. Hay una sola Luna, pero en muchas costas hay dos mareas altas por día. ¿Por qué?",
+        "type": "multiple-choice",
+        "options": [
+            "Por la atracción combinada del Sol y la Luna",
+            "Porque los continentes desplazan el agua",
+            "Porque la Luna gira dos veces al día",
+            "Por la diferencia de atracción lunar entre ambos lados de la Tierra"
+        ],
+        "correctAnswer": 3,
+        "explanation": "Es la fuerza de marea: no importa tanto cuánto atrae un objeto, sino la diferencia de atracción entre un punto y otro. La Luna tira más fuerte del lado cercano que del lejano, y esa diferencia produce dos abultamientos de marea en los océanos, uno aproximadamente hacia la Luna y otro en el lado opuesto. El Sol también contribuye, con casi la mitad de ese efecto. Más adelante vas a ver qué le hace esta misma fuerza a los objetos que se acercan a algo muchísimo más masivo.",
+        "difficulty": "hard",
+        "lesson": "La Luna y sus fases"
+    }
+]

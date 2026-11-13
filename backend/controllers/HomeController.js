@@ -2,6 +2,7 @@ import UserModel from '../models/userModel.js';
 import LevelModel from '../models/levelModel.js';
 import LessonModel from '../models/lessonModel.js';
 import UserProgressModel from '../models/userProgressModel.js';
+import { getActiveStreak } from '../utils/streak.js';
 
 class HomeController {
     async getHome(req, res) {
@@ -41,7 +42,14 @@ class HomeController {
                 return { ...lesson, status: 'locked' }
             })
 
-            return res.status(200).json({ msg: 'Home obtenida correctamente.', data: { user, levels, lessons: lessonsWithStatus }})
+            return res.status(200).json({
+                msg: 'Home obtenida correctamente.', 
+                data: {
+                    user: { ...user, streak: { ...user.streak, current: getActiveStreak(user.streak) } },
+                    levels,
+                    lessons: lessonsWithStatus
+                }
+            })
         } catch (error) {
             console.error(error);
             return res.status(500).json({ msg: 'No fue posible obtener la home.', data: {} });

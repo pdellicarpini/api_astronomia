@@ -1,3 +1,4 @@
+import './Questions.css';
 import { useEffect, useState } from 'react';
 import shuffle from '../../utils/shuffle.js';
 

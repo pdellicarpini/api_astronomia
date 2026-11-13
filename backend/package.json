@@ -19,9 +19,9 @@
     "dev": "node --watch index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "seed": "node seeds/index.js",
-    "seed:levels": "node seeds/levelSeed.js",
-    "seed:lessons": "node seeds/lessonSeed.js",
-    "seed:questions": "node seeds/questionSeed.js"
+    "seed:levels": "node seeds/index.js levels",
+    "seed:lessons": "node seeds/index.js lessons",
+    "seed:questions": "node seeds/index.js questions"
   },
   "dependencies": {
     "bcrypt": "^6.0.0",

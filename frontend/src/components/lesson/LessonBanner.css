@@ -1,0 +1,29 @@
+.lesson-banner {
+    background-color: var(--light-blue);
+    padding: 1rem;
+    margin-bottom: 2rem;
+    border-radius: var(--card-radius);
+}
+
+.lesson-finished .lesson-banner {
+    margin: 1rem 1rem 0 1rem;
+}
+
+.lesson-banner--text h2 {
+    color: var(--asteria-orange);
+}
+
+.lesson-banner--text p {
+    color: var(--light-orange);
+    font-size: 14px;
+}
+
+.lesson-banner--progress {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.exit-lesson-button {
+    border: none;
+    background-color: transparent;
+}

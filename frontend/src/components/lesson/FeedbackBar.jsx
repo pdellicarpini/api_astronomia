@@ -1,3 +1,5 @@
+import './FeedbackBar.css';
+
 function FeedbackBar({ isCorrect, onNext, explanation }) {
     if (isCorrect === null) return null;
 
@@ -6,14 +8,14 @@ function FeedbackBar({ isCorrect, onNext, explanation }) {
             className={ `feedback-bar feedback-bar--${ isCorrect ? 'correct' : 'wrong' }` }
             role="status"
         >
-            <div className="feedback-bar__text">
-                <p className="feedback-bar__title">
+            <div className="feedback-bar--text">
+                <p className="feedback-bar--title">
                     { isCorrect
                         ? <><i className="bi bi-check-circle" aria-hidden="true"></i> ¡Correcto!</>
                         : <><i className="bi bi-x-circle" aria-hidden="true"></i> Incorrecto</> }
                 </p>
                 { explanation && (
-                    <p className="feedback-bar__explanation">{ explanation }</p>
+                    <p className="feedback-bar--explanation">{ explanation }</p>
                 ) }
             </div>
             <button onClick={ onNext }>Continuar</button>

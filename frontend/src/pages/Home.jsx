@@ -3,10 +3,8 @@ import ProfileHeader from '../components/home/ProfileHeader.jsx';
 import LevelsCard from '../components/home/LevelsCard.jsx';
 import StreakBadge from '../components/home/StreakBadge.jsx';
 import Navbar from '../components/common/Navbar.jsx';
+import Loader from '../components/common/Loader.jsx';
 import { useEffect, useRef, useState } from 'react';
-import { lessons } from '../mocks/lessons.js';
-import { currentUser } from '../mocks/users.js';
-import { levels } from '../mocks/levels.js';
 import { useNavigate } from 'react-router-dom';
 import { getHome } from '../services/homeService.js';
 
@@ -36,11 +34,19 @@ function Home() {
         navigate(`/lecciones/${lessonId}`);
     }
 
-    if (error) return <main className='main-container'><p className='text'>{ error }</p></main>;
-    if (!home) return <main className='main-container'><p className='text text-muted'>Cargando...</p></main>;
+    if (error) {
+        return (
+            <main className='main-container'>
+                <p className='text'>{ error }</p>
+            </main>
+        )
+    }
+
+    if (!home) return <Loader/>
 
     const { user, levels } = home;
     const completedCount = lessons.filter(lesson => lesson.status === 'completed').length;
+
 
     return (
         <>
