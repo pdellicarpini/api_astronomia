@@ -18,9 +18,10 @@
   --radius-row: 12px;
   --pill: 999px;
   --text-soft: #C9C5EE;
-  --text-muted: #8a90c9; 
+  --text-muted: #8a90c9;
 
   --card-font-size: 15px;
+  --nav-height: 73.5px;
 }
 
 /* ---------- tipografía ---------- */
@@ -44,7 +45,25 @@
   font-weight: 400;
 }
 
-h1, h2, h3, strong {
+body {
+  background: var(--deep-blue);
+  /* background: linear-gradient(0deg, rgba(24, 13, 97, 0.637) 0%, rgba(13, 7, 56, 1) 100%); */
+}
+
+.main-container {
+  padding: 0.5rem 0;
+  margin: 1rem;
+  gap: 20px;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: calc(var(--nav-height) + env(safe-area-inset-bottom));
+}
+
+
+h1,
+h2,
+h3,
+strong {
   font-weight: 600;
 }
 
@@ -76,24 +95,24 @@ h1, h2, h3, strong {
   font-size: 14px
 }
 
-.text-soft { 
-  color: var(--text-soft); 
+.text-soft {
+  color: var(--text-soft);
 }
 
-.text-muted { 
-  color: var(--text-muted); 
+.text-muted {
+  color: var(--text-muted);
 }
 
-.text-gold { 
-  color: var(--gold); 
+.text-gold {
+  color: var(--gold);
 }
 
-.text-info { 
-  color: var(--info); 
+.text-info {
+  color: var(--info);
 }
 
-.text-orange { 
-  color: var(--light-orange); 
+.text-orange {
+  color: var(--light-orange);
 }
 
 .text-asteria-orange {
@@ -104,16 +123,15 @@ h1, h2, h3, strong {
   color: var(--danger);
 }
 
-.text-green { color: var(--success); }
+.text-green {
+  color: var(--success);
+}
 
-.text-bold { font-weight: 600; }
+.text-bold {
+  font-weight: 600;
+}
 
 /* ---------- generales ---------- */
-
-body {
-  background: var(--deep-blue);
-  /* background: linear-gradient(0deg, rgba(24, 13, 97, 0.637) 0%, rgba(13, 7, 56, 1) 100%); */
-}
 
 .pill-box {
   border-radius: var(--pill);
@@ -138,7 +156,7 @@ body {
 .main-button,
 .outline-button {
   display: inline-flex;
-  align-items: center; 
+  align-items: center;
   justify-content: center;
   gap: 6px;
   padding: 12px 20px;
@@ -149,8 +167,8 @@ body {
   font-family: inherit;
   cursor: pointer;
   transition: transform 0.3s ease,
-              background-color 0.3s ease,
-              color 0.3s ease;
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
 .outline-button {
@@ -159,14 +177,24 @@ body {
   color: var(--info);
 }
 
-.outline-button:hover { 
-  background: #5cc8ff24; 
+.outline-button:hover {
+  background: #5cc8ff24;
   transform: scale(1.02);
 }
 
-.button--block { 
-  width: 100%; 
+.button--block {
+  width: 100%;
 }
+
+.chevron-button {
+  background-color: var(--asteria-blue);
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  border: thin solid var(--light-blue);
+}
+
+
 
 /* ---------- progreso por segmentos ---------- */
 
@@ -175,14 +203,14 @@ body {
   gap: 4px;
 }
 
-.segments > span {
+.segments>span {
   flex: 1;
   height: 8px;
   border-radius: var(--pill);
   background-color: var(--light-blue);
 }
 
-.segments> .is-done {
+.segments>.is-done {
   background-color: var(--gold);
 }
 
@@ -190,9 +218,9 @@ body {
   display: inline-block;
   padding: 4px 12px;
   border-radius: var(--pill);
-  background-color: #5cc8ff24; 
+  background-color: #5cc8ff24;
   color: var(--info);
-  font-size: 13px; 
+  font-size: 13px;
   font-weight: 500;
 }
 
@@ -201,15 +229,6 @@ body {
 :focus-visible {
   outline: 2px solid var(--info);
   outline-offset: 2px;
-}
-
-.main-container {
-  padding: 0.5rem 0;
-  margin: 1rem;
-  gap: 20px;
-  display: flex;
-  flex-direction: column;
-  padding-bottom: 80px;
 }
 
 /* -------------- header -------------- */
@@ -235,7 +254,7 @@ body {
   font-size: 14px;
 }
 
-.profile-img, 
+.profile-img,
 .avatar-placeholder {
   border-radius: 50%;
   width: 44px;
@@ -253,7 +272,7 @@ body {
   margin: auto 0;
 }
 
-.profile-header > div p:first-of-type {
+.profile-header>div p:first-of-type {
   font-weight: bold;
 }
 
@@ -274,28 +293,28 @@ body {
 
 /* -------------- lessons --------------*/
 
-.card--current { 
-  background: var(--light-blue); 
-  border: 1.5px solid var(--asteria-orange); 
+.card--current {
+  background: var(--light-blue);
+  border: 1.5px solid var(--asteria-orange);
 }
 
-.card--locked { 
-  background: var(--deep-blue); 
-  border: 1px dashed var(--light-blue); 
+.card--locked {
+  background: var(--deep-blue);
+  border: 1px dashed var(--light-blue);
 }
 
-.card--row { 
-  padding: 12px 14px; 
-  border-radius: var(--radius-row); 
+.card--row {
+  padding: 12px 14px;
+  border-radius: var(--radius-row);
   background-color: var(--deep-blue);
-}  
+}
 
 /* camino de progreso de lecciones */
 
-.path { 
-  list-style: none; 
-  padding: 0; 
-  margin: 0; 
+.path {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .step {
@@ -305,13 +324,13 @@ body {
   padding-bottom: 16px;
 }
 
-.step--last { 
-  padding-bottom: 0; 
+.step--last {
+  padding-bottom: 0;
 }
 
-.step__body { 
-  flex: 1; 
-  min-width: 0; 
+.step__body {
+  flex: 1;
+  min-width: 0;
 }
 
 .step__body p {
@@ -329,14 +348,14 @@ body {
   content: "";
   position: absolute;
   left: calc(50px / 2 - 1px);
-  top: calc(50px + 8px);   
+  top: calc(50px + 8px);
   bottom: 8px;
   width: 2px;
   background: repeating-linear-gradient(to bottom, var(--light-blue) 0 6px, transparent 6px 12px);
 }
 
-.step--completed:not(.step--last)::before { 
-  background: var(--gold); 
+.step--completed:not(.step--last)::before {
+  background: var(--gold);
 }
 
 .step--current .step__node {
@@ -344,22 +363,22 @@ body {
   outline-offset: 3px;
 }
 
-.step--locked .step__body { 
-  padding-top: 4px; 
+.step--locked .step__body {
+  padding-top: 4px;
 }
 
-.step__hint { 
-  margin-top: 4px; 
+.step__hint {
+  margin-top: 4px;
 }
 
-.step--soon .step__node { 
-  border-style: dashed; 
+.step--soon .step__node {
+  border-style: dashed;
 }
 
-.step--soon .step__body { 
-  display: flex; 
-  align-items: center; 
-  min-height: var(50px); 
+.step--soon .step__body {
+  display: flex;
+  align-items: center;
+  min-height: var(50px);
 }
 
 .step--soon {
@@ -501,23 +520,18 @@ progress::-moz-progress-bar {
 
 @keyframes page-enter {
   from {
-      opacity: 0;
-      transform: translateY(12px);
+    opacity: 0;
+    transform: translateY(12px);
   }
 
   to {
-      opacity: 1;
-      transform: translateY(0);
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .container-animation {
     animation: none;
-    }
+  }
 }
-
-
-
-
-

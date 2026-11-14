@@ -1,0 +1,89 @@
+.new-post-container {
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: column;
+    min-height: 100dvh;
+    gap: 10px;
+    padding: 20px;
+}
+
+.new-post--form {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.new-post--chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 30px;
+}
+
+.post-chip {
+    min-height: 44px;
+    padding: 0 18px;
+    border: 1px solid var(--light-blue);
+    border-radius: var(--pill);
+    background: transparent;
+    color: var(--text-soft);
+    font: inherit;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.post-chip[aria-pressed='true'] {
+    background: var(--light-blue);
+    border-color: var(--info);
+    color: var(--white);
+}
+
+.post-chip:focus-visible {
+    outline: 2px solid var(--info);
+    outline-offset: 2px;
+}
+
+.post--categories {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.new-post--field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 14px 16px;
+}
+
+.new-post--field:focus-within {
+    outline: 2px solid var(--light-orange);
+}
+
+.field--grow {
+    flex: none;
+    min-height: 100px;
+}
+
+.new-post--form .main-button {
+    margin: 0 !important;
+}
+
+.new-post--form input,
+.new-post--form textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    outline: none;
+}
+
+.new-post--form textarea {
+    flex: none;
+    min-height: 250px;
+    resize: vertical;
+}

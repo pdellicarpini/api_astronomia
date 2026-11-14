@@ -7,6 +7,7 @@ import Loader from '../components/common/Loader.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getHome } from '../services/homeService.js';
+import { useAuth } from '../context/AuthContext.jsx';
 
 function Home() {
     const navigate = useNavigate();
@@ -30,43 +31,47 @@ function Home() {
         if (!isVisible) current.scrollIntoView({ block: 'center' });
     }, [currentId]);
 
+    // handlers
+
     function handleStart(lessonId) {
         navigate(`/lecciones/${lessonId}`);
+    }
+
+    function handleProfileDetails(userId) {
+        navigate(`/mi-perfil/${userId}`);
     }
 
     if (error) {
         return (
             <main className='main-container'>
-                <p className='text'>{ error }</p>
+                <p className='text'>{error}</p>
             </main>
         )
     }
 
-    if (!home) return <Loader/>
+    if (!home) return <Loader />
 
     const { user, levels } = home;
     const completedCount = lessons.filter(lesson => lesson.status === 'completed').length;
-
 
     return (
         <>
             <main className='main-container container-animation'>
                 <header className='user-header'>
                     <ProfileHeader
-                        avatar={ user.profileImg }
-                        username={ user.name }
-                        level={ user.level.name }
+                        user={user}
+                        onClick={handleProfileDetails}
                     />
                     <StreakBadge
-                        streak={ user.streak.current }
+                        streak={user.streak.current}
                     />
                 </header>
 
                 <LevelsCard
-                    currentLevel={ user.level }
-                    levels={ levels }
-                    completed={ completedCount }
-                    total={ lessons.length }
+                    currentLevel={user.level}
+                    levels={levels}
+                    completed={completedCount}
+                    total={lessons.length}
                 />
 
                 <ol className='path' ref={pathRef} aria-label='Lecciones del nivel'>

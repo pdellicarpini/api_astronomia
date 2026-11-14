@@ -1,3 +1,4 @@
+import './LoginPrompt.css';
 import { Link, useLocation } from 'react-router-dom';
 
 function LoginPrompt({ message, onClose }) {

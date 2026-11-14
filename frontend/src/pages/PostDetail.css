@@ -1,0 +1,80 @@
+
+
+.post-detail--header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.post-detail--header i {
+    font-size: 24px;
+    color: var(--white);
+}
+
+.post-detail--pill {
+    margin-left: auto;
+}
+
+/* formulario para comentar */
+
+.composer {
+    position: sticky;
+    left: 0;
+    right: 0;
+    bottom: calc(var(--nav-height) - 2px);
+    padding: 1rem;
+    z-index: 900;
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+    background: var(--asteria-blue);
+    border-top: 1px solid var(--light-blue);
+}
+
+.composer .comment--avatar {
+    margin-bottom: 6px;
+}
+
+.composer--input {
+    flex: 1;
+    min-height: 44px;
+    max-height: 140px;
+    padding: 11px 14px;
+    resize: none;
+    overflow-y: auto;
+    field-sizing: content;
+    font-family: var(--sans);
+    font-size: var(--card-font-size);
+    line-height: 1.45;
+    color: var(--white);
+    background: var(--light-blue);
+    border: 1px solid transparent;
+    border-radius: var(--card-radius);
+    outline: none;
+}
+
+.composer--input::placeholder {
+    color: var(--text-muted);
+}
+
+.composer--input:focus {
+    border-color: var(--asteria-orange);
+}
+
+.composer--send {
+    display: none;
+    flex: none;
+    width: 44px;
+    height: 44px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--asteria-orange);
+    color: var(--deep-blue);
+    font-size: 20px;
+}
+
+/* el botón aparece solo cuando el textarea tiene texto */
+.composer--input:not(:placeholder-shown) ~ .composer--send {
+    display: flex;
+}

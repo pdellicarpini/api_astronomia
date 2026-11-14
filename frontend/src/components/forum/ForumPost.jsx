@@ -1,7 +1,7 @@
 import './ForumPost.css';
 import { useAuth } from '../../context/AuthContext';
 import { timeAgo } from '../../utils/timeAgo';
-import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 
 const categoryClass = {
@@ -11,15 +11,17 @@ const categoryClass = {
     Charlas: 'text-gold'
 }
 
-function ForumPost({ post, onToggleLike }) {
+function ForumPost({ post, onToggleLike, isDetail = false }) {
     const { user } = useAuth();
     const { author } = post;
+    const commentsCount = post.commentsCount ?? post.comments?.length ?? 0;
     const liked = user ? post.likes.includes(user.id) : false;
+    const detailPath = `/post/${post._id}`;
 
     console.log('Autor:', author);
     console.log('Nivel:', author?.level);
     return (
-        <div className="card">
+        <div className="card forum-post">
             <div className='forum-user'>
                 <div className='forum-user--info'>
                     {author?.profileImg ? <img src={author.profileImg} alt={`Avatar ${author.name}`} className='profile-img' /> : <div className="avatar-placeholder"> </div>}
@@ -29,12 +31,16 @@ function ForumPost({ post, onToggleLike }) {
                     )}
                 </div>
                 <p className={`${categoryClass[post.category]} text-small`}>{post.category}</p>
-                <h2 className='subtitle'>{post.title}</h2>
+                {isDetail
+                    ? <h2 className='subtitle'>{post.title}</h2>
+                    : <Link to={detailPath}><h2 className='subtitle'>{post.title}</h2></Link>}
                 <p className='text-soft'>{post.body}</p>
             </div>
-            <div className='forum-comment'>
-                Agregar comentario...
-            </div>
+
+            {!isDetail && (
+                <Link to={detailPath} className='forum-comment'>Agregar comentario...</Link>
+            )}
+
             <div className='forum-interactions d-flex text-small gap-5'>
                 <button
                     className='d-flex gap-2 text-soft'
@@ -46,7 +52,7 @@ function ForumPost({ post, onToggleLike }) {
                 </button>
                 <p className='d-flex gap-2 text-soft'>
                     <i className="bi bi-chat text-info"></i>
-                    <span>{post.comments.length}</span>
+                    <span>{commentsCount}</span>
                 </p>
                 <p className='text-muted text-small'>{timeAgo(post.createdAt)}</p>
             </div>

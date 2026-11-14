@@ -1,4 +1,4 @@
-import './AstronomicalEvents.css';
+import './AstronomicalCalendar.css';
 import Calendar from '../components/calendar/Calendar.jsx';
 import NextEvent from '../components/calendar/NextEvent.jsx';
 import UpcomingEvents from '../components/calendar/UpcomingEvents.jsx';

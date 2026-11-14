@@ -8,6 +8,12 @@ const authorPopulate = {
     populate: { path: 'level', select: 'name' }
 };
 
+const commentAuthorPopulate = {
+    path: 'comments.author',
+    select: 'name profileImg level',
+    populate: { path: 'level', select: 'name' }
+};
+
 class PostController {
     async getPosts(req, res) {
         try {
@@ -32,10 +38,17 @@ class PostController {
             }
 
             const posts = await PostModel.find(filteredPosts)
+                .select('-reports')
                 .populate(authorPopulate)
-                .sort({ createdAt: -1 });
+                .sort({ createdAt: -1 })
+                .lean();
 
-            return res.status(200).json({ msg: 'Posteos encontrados.', data: { posts } });
+            const postsWithCount = posts.map(({ comments, ...post }) => ({
+                ...post,
+                commentsCount: comments?.length ?? 0
+            }));
+
+            return res.status(200).json({ msg: 'Posteos encontrados.', data: { posts: postsWithCount } });
         } catch (error) {
             console.error(error);
             return res.status(500).json({ msg: 'No fue posible obtener los posteos.', data: {} });
@@ -52,8 +65,9 @@ class PostController {
             }
 
             const post = await PostModel.findById(id)
+                .select('-reports')
                 .populate(authorPopulate)
-                .populate('comments.author', 'name profileImg level');
+                .populate(commentAuthorPopulate);
 
             if (post) {
                 return res.status(200).json({ msg: 'Post encontrado.', data: { post } });
@@ -142,17 +156,16 @@ class PostController {
 
             post.comments.push({ author: req.user.id, body });
             await post.save();
-            await post.populate('comments.author', 'name profileImg level');
+            await post.populate(commentAuthorPopulate);
 
             return res.status(201).json({ msg: 'Comentario agregado.', data: { comments: post.comments } });
         } catch (error) {
             if (error.name === 'ValidationError') {
                 return res.status(400).json({
                     msg: 'Los datos ingresados no son válidos.',
-                    data: { errors: Object.values(error.errors).map((e) => e.message) }
+                    errors: Object.values(error.errors).map((e) => e.message),
                 });
             }
-
             console.error(error);
             return res.status(500).json({ msg: 'No se pudo guardar el comentario.', data: {} });
         }

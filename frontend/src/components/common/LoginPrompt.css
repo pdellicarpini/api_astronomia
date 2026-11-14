@@ -1,0 +1,38 @@
+/* * -------------- login prompt -------------- */ 
+
+.prompt-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(13, 7, 56, 0.85);
+}
+
+.prompt {
+    width: 100%;
+    max-width: 360px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+    align-self: flex-start;
+}
+
+.auth-links a {
+    text-decoration: none;
+    width: 100%;
+}
+
+.auth-links {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.prompt-overlay .not-now {
+    background-color: var(--deep-blue);
+    border: thin solid var(--light-blue);
+    color: var(--text-muted);
+}

@@ -1,7 +1,8 @@
 import api from './api.js';
 
 function getErrorMessage(error) {
-    return error.response?.data?.msg || 'No se pudo conectar con el servidor.';
+    const data = error.response?.data;
+    return data?.errors?.[0] || data?.msg || 'No se pudo conectar con el servidor.';
 }
 
 export async function getLessonWithQuestions(lessonId) {

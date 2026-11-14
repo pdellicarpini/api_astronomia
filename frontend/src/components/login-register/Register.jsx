@@ -52,7 +52,7 @@ function Register() {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className='register'>
             <div className="field">
                 <label htmlFor="name">Nombre</label>
                 <div className='input'>
@@ -130,6 +130,12 @@ function Register() {
 
             <button className="main-button" type="submit" disabled={loading}>
                 {loading ? 'Creando cuenta...' : 'Crear cuenta'}
+            </button>
+
+            <div className="divider"><span>o</span></div>
+
+            <button className="main-button" type="submit" disabled={loading}>
+                {loading ? 'Ingresando...' : 'Continuar con Google'}
             </button>
         </form>
     );

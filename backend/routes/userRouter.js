@@ -1,6 +1,7 @@
 import express from 'express';
 import UserController from '../controllers/UserController.js';
 import uploadMiddleware from '../middlewares/uploadMiddleware.js';
+import authMiddleware from '../middlewares/authMiddleware.js';
 
 const user = new UserController();
 
@@ -11,6 +12,6 @@ router.get('/', user.getUsers);
 router.get('/:id', user.getUserById);
 router.delete('/:id', user.deleteUserById);
 router.put('/:id', user.updateUserById);
-router.post('/profile-image', uploadMiddleware.single('profileImg'), user.uploadProfileImg);
+router.post('/profile-image', authMiddleware, uploadMiddleware.single('profileImg'), user.uploadProfileImg);
 
 export default router;

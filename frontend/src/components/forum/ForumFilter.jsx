@@ -1,9 +1,10 @@
 import './ForumFilter.css';
+import { forumCategories } from '../../constants/forumCategories.js';
 
-function ForumFilter({ categories, selected, onSelect }) {
+function ForumFilter({ selected, onSelect }) {
     return (
         <ul className='forum-filter'>
-            { categories.map(category => (
+            { forumCategories.map(category => (
                 <li key={ category }>
                     <button 
                         onClick={ () => onSelect(category)}

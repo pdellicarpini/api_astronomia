@@ -6,17 +6,11 @@ import ForumPost from '../components/forum/ForumPost.jsx';
 import LoginPrompt from '../components/common/LoginPrompt.jsx';
 import { useEffect, useState } from 'react';
 import { useAuth } from '../context/AuthContext.jsx';
-
-const categories = [
-    'Todo',
-    'Preguntas',
-    'Observaciones',
-    'Astrofotografía',
-    'Charlas'
-]
+import { Link, useNavigate } from 'react-router-dom';
 
 function Forum() {
     const { user } = useAuth();
+    const navigate = useNavigate();
     const [posts, setPosts] = useState([]);
     const [category, setCategory] = useState('Todo');
     const [loading, setLoading] = useState(true);
@@ -42,6 +36,10 @@ function Forum() {
         setPromptMessage(message);
     }
 
+    function handlePostDetails(postId) {
+        navigate(`/post/${postId}`);
+    }
+
     async function toggleLike(postId) {
         if (!user) return requireLogin('Iniciá sesión para dar me gusta.');
 
@@ -61,14 +59,17 @@ function Forum() {
         <>
             <main className="main-container container-animation">
                 <h1 className="title">Foro de la comunidad</h1>
-                <ForumFilter categories={categories} selected={category} onSelect={setCategory} />
+                <ForumFilter selected={category} onSelect={setCategory} />
+                <Link to='/foro/nuevo' className='main-button'>
+                    <i className='bi bi-plus-lg'></i> Nuevo post
+                </Link>
 
                 {loading && !error && visiblePosts.length === 0 && (
                     <p className='text-soft'>Todavía no hay publicaciones en esta categoría.</p>
                 )}
 
                 {visiblePosts.map(post => (
-                    <ForumPost key={post._id} post={post} onToggleLike={toggleLike} />
+                    <ForumPost key={post._id} post={post} onToggleLike={toggleLike} onClick={handlePostDetails}/>
                 ))}
                 {promptMessage && (
                     <LoginPrompt message={promptMessage} onClose={() => setPromptMessage('')} />

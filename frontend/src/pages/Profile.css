@@ -1,0 +1,99 @@
+.profile-container {
+    margin: 0;
+}
+
+.profile-container section {
+    margin: 0 20px;
+}
+
+/* profile-details */
+
+.profile-details {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: var(--deep-blue);
+    background-image: url('../assets/patterns/trama.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.profile-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px;
+}
+
+.details-button {
+    background-color: transparent;
+    border: none;
+    font-size: 25px;
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-info--img {
+    border-radius: 50%;
+    border: 2px solid var(--asteria-orange);
+    width: 130px;
+    margin-bottom: 10px;
+}
+
+/* profile-progress */
+
+.profile-progress--level {
+    display: flex;
+    gap: 10px;
+}
+
+.level-icon {
+    background-color: var(--light-blue);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: thin solid var(--gold);
+}
+
+.level-icon i {
+    font-size: 25px;
+    color: var(--gold);
+}
+
+.progress-bar {
+    padding: 6px;
+    background-color: var(--asteria-orange);
+    border-radius: var(--pill);
+}
+
+/* profile-streak */
+
+.profile-streak {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.streak-stats {
+    width: 100%;
+    gap: 0;
+}
+
+/* profile-activity */
+
+.profile-activity .card {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.profile-activity:last-of-type {
+    margin-bottom: 20px;
+}

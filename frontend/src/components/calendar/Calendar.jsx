@@ -60,7 +60,7 @@ function Calendar({ onDayClick, events, icons }) {
                     toolbarClass='calendar-toolbar-section'
                     buttonClass={ (info) => {
                         if (info.name === 'prev' || info.name === 'next') {
-                            return 'calendar-nav-button';
+                            return 'chevron-button';
                         }
 
                         return 'calendar-view-button';

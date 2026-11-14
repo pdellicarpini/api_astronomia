@@ -4,7 +4,7 @@ import imagotipo from '../../assets/asteria/imagotipoV1.png'
 
 function AuthLayout({ title, subtitle, compact = false, children }) {
     return (
-        <main className="main-container main-animation auth-container">
+        <>
             <header className={`auth-hero ${ compact ? 'auth-hero--compact' : '' }`}>
                 <img className='auth-brand' src={ imagotipo } alt='Asteria' />
                 <div>
@@ -17,7 +17,7 @@ function AuthLayout({ title, subtitle, compact = false, children }) {
                 { children }
             </section>
             <Navbar/>
-        </main>
+        </>
     );
 }
 

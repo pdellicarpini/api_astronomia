@@ -8,6 +8,11 @@
     gap: 10px;
 }
 
+.forum-post a {
+    text-decoration: none;
+    color: var(--white);
+}
+
 .forum-user .pill-box {
     background-color: var(--light-blue);
     color: var(--gold);
@@ -33,8 +38,8 @@
     background-color: var(--light-blue);
     color: var(--text-muted);
     height: 50px;
-    justify-content: center;
     display: flex;
     align-items: center;
+    padding-left: 20px;
     border-radius: var(--card-radius);
 }
